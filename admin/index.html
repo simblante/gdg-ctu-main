@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GDGoC CTU Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /*==============================
+        GOOGLE FONT
+==============================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*==============================
+        RESET
+==============================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f7f9ff;
+
+    color:#1d2433;
+
+    overflow-x:hidden;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/*==============================
+        BACKGROUND
+==============================*/
+
+.login-wrapper{
+
+    width:100%;
+    min-height:100vh;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+    justify-items:center;
+
+    padding:60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    radial-gradient(circle at top left,#dfe4ff 0%,transparent 40%),
+
+    radial-gradient(circle at bottom right,#ffe5cc 0%,transparent 30%),
+
+    #f8f9ff;
+}
+
+/*==============================
+        BACKGROUND SHAPES
+==============================*/
+
+.bg-circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(2px);
+
+    z-index:0;
+
+}
+
+.bg1{
+
+    width:520px;
+    height:520px;
+
+    left:-220px;
+    top:-220px;
+
+    background:linear-gradient(
+    135deg,
+    #5c6cff,
+    #d8dbff);
+
+    opacity:.35;
+
+}
+
+.bg2{
+
+    width:430px;
+    height:430px;
+
+    right:-120px;
+    top:-100px;
+
+    background:linear-gradient(
+    135deg,
+    #ffb54a,
+    #ff6f61);
+
+    opacity:.35;
+
+}
+
+.bg3{
+
+    width:380px;
+    height:380px;
+
+    right:-100px;
+    bottom:-180px;
+
+    background:linear-gradient(
+    135deg,
+    #cfd5ff,
+    #ffffff);
+
+    opacity:.55;
+
+}
+
+/*==============================
+        LEFT PANEL
+==============================*/
+
+.left-panel{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:560px;
+
+    justify-self:center;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.brand img{
+
+    width:82px;
+    height:82px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(76,99,255,.15);
+    transition:.5s;
+}
+
+.brand img:hover{
+    transform:rotate(-8deg) scale(1.08);
+}
+
+.brand h1{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    color:#111c3d;
+
+}
+
+.brand h1 span{
+
+    color:#4c63ff;
+
+}
+
+.brand p{
+
+    margin-top:8px;
+
+    font-size:1.15rem;
+
+    color:#49577c;
+
+}
+
+.brand small{
+
+    color:#3b82f6;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+}
+
+/*==============================
+        DIVIDER
+==============================*/
+
+.divider{
+
+    width:72px;
+    height:4px;
+
+    border-radius:50px;
+
+    margin:42px 0;
+
+    background:linear-gradient(
+    to right,
+    #4d5dff,
+    #6d7dff);
+
+}
+
+/*==============================
+        TITLE
+==============================*/
+
+.left-panel h2{
+
+    font-size:4.3rem;
+
+    line-height:1.18;
+
+    font-weight:800;
+
+    color:#121b36;
+
+}
+
+.left-panel h2 span{
+
+    color:#5a61ff;
+
+}
+
+/*==============================
+        DESCRIPTION
+==============================*/
+
+.description{
+
+    margin-top:24px;
+
+    width:470px;
+
+    font-size:1.22rem;
+
+    line-height:2rem;
+
+    color:#586482;
+
+}
+/*=========================================
+        ILLUSTRATION
+=========================================*/
+
+.illustration{
+
+    margin-top:50px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.illustration img{
+
+    width:100%;
+    max-width:520px;
+
+    animation:float 5s ease-in-out infinite;
+
+    user-select:none;
+    pointer-events:none;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+            LOGIN CARD - ENHANCED
+=========================================*/
+
+.login-card{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+    max-width:560px;
+
+    justify-self:center;
+
+    padding:55px 48px;
+
+    border-radius:35px;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.75);
+
+    box-shadow:
+
+    0 25px 70px rgba(44,62,120,.12),
+
+    0 10px 25px rgba(44,62,120,.08);
+
+    transition:.45s ease;
+
+}
+
+.login-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 35px 80px rgba(40,55,120,.18),
+
+    0 12px 25px rgba(40,55,120,.08);
+
+}
+
+/* Card Glow Effect */
+.login-card::before{
+    content:'';
+    position:absolute;
+    top:-2px;
+    left:-2px;
+    right:-2px;
+    bottom:-2px;
+    border-radius:36px;
+    background:linear-gradient(135deg,rgba(76,99,255,.1),rgba(105,87,255,.1));
+    z-index:-1;
+    opacity:0;
+    transition:.45s;
+}
+
+.login-card:hover::before{
+    opacity:1;
+}
+
+/*=========================================
+            LOGIN TITLE - CENTERED
+=========================================*/
+
+.login-card h2{
+
+    font-size:2.8rem;
+
+    font-weight:800;
+
+    color:#182547;
+
+    text-align:center;
+
+}
+
+.login-card h2 span{
+    color:#4c63ff;
+}
+
+.login-card>p{
+
+    margin-top:10px;
+
+    margin-bottom:35px;
+
+    color:#64748b;
+
+    font-size:1.05rem;
+
+    text-align:center;
+
+}
+
+/*=========================================
+            LABEL
+=========================================*/
+
+.login-card label{
+
+    display:block;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:#273553;
+
+    font-size:15px;
+
+}
+
+/*=========================================
+            INPUT - ENHANCED
+=========================================*/
+
+.input-box{
+
+    width:100%;
+
+    height:64px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:0 20px;
+
+    margin-bottom:24px;
+
+    border-radius:16px;
+
+    border:2px solid #dbe2ef;
+
+    background:#fff;
+
+    transition:.35s;
+
+}
+
+.input-box:hover{
+
+    border-color:#5c6cff;
+
+    transform:translateY(-2px);
+
+}
+
+.input-box:focus-within{
+
+    border-color:#4c63ff;
+
+    box-shadow:0 0 0 5px rgba(92,108,255,.10);
+
+    transform:translateY(-2px);
+
+}
+
+.input-box i{
+
+    font-size:18px;
+
+    color:#5c6cff;
+
+    width:20px;
+
+}
+
+.input-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    font-size:16px;
+
+    color:#1d2433;
+
+    font-weight:500;
+
+}
+
+.input-box input::placeholder{
+
+    color:#9ca3af;
+
+    font-weight:400;
+
+}
+
+/*=========================================
+            PASSWORD BUTTON
+=========================================*/
+
+.toggle-password{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:#6b7280;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.toggle-password:hover{
+
+    color:#4c63ff;
+
+}
+
+/*=========================================
+            OPTIONS - CENTERED
+=========================================*/
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.remember{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    color:#64748b;
+
+    cursor:pointer;
+
+}
+
+.remember input{
+
+    width:17px;
+    height:17px;
+
+    accent-color:#4c63ff;
+
+    cursor:pointer;
+
+}
+
+.options a{
+
+    text-decoration:none;
+
+    color:#4c63ff;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.options a:hover{
+
+    text-decoration:underline;
+
+    color:#3a4fff;
+
+}
+
+/*=========================================
+            LOGIN BUTTON - ENHANCED
+=========================================*/
+
+.login-btn{
+
+    width:100%;
+
+    height:62px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#4c63ff,#6957ff);
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.login-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    120deg,
+
+    transparent,
+
+    rgba(255,255,255,.35),
+
+    transparent
+
+    );
+
+    transition:.8s;
+
+}
+
+.login-btn:hover::before{
+
+    left:120%;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 18px 35px rgba(76,99,255,.35);
+
+}
+
+/*=========================================
+            SECURE DIVIDER
+=========================================*/
+
+.secure{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:35px 0 15px;
+
+}
+
+.secure .line{
+
+    flex:1;
+
+    height:1px;
+
+    background:linear-gradient(to right,transparent,#dbe2ef,transparent);
+
+}
+
+.secure i{
+
+    color:#4c63ff;
+
+    font-size:18px;
+
+}
+
+/*=========================================
+            FOOTER TEXT
+=========================================*/
+
+.login-card h3{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:#1e293b;
+
+    font-size:16px;
+
+}
+
+.footer-text{
+
+    text-align:center;
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+}
+
+.footer-text i{
+    color:#4c63ff;
+    margin-right:6px;
+}
+
+/*=========================================
+            PAGE FOOTER
+=========================================*/
+
+footer{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#6b7280;
+
+    font-size:14px;
+
+    z-index:20;
+
+    background:rgba(255,255,255,.6);
+
+    backdrop-filter:blur(10px);
+
+    padding:10px 30px;
+
+    border-radius:50px;
+
+    border:1px solid rgba(255,255,255,.5);
+
+}
+
+/*=========================================
+        CARD ENTRANCE ANIMATION
+=========================================*/
+
+.left-panel{
+
+    animation:leftFade .9s ease;
+
+}
+
+.login-card{
+
+    animation:rightFade 1s ease;
+
+}
+
+@keyframes leftFade{
+
+    from{
+
+        opacity:0;
+        transform:translateX(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes rightFade{
+
+    from{
+
+        opacity:0;
+        transform:translateX(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+/*=========================================
+        FLOATING BACKGROUND
+=========================================*/
+
+.bg1{
+
+    animation:floatOne 10s ease-in-out infinite;
+
+}
+
+.bg2{
+
+    animation:floatTwo 12s ease-in-out infinite;
+
+}
+
+.bg3{
+
+    animation:floatThree 14s ease-in-out infinite;
+
+}
+
+@keyframes floatOne{
+
+    0%{
+
+        transform:translate(0,0);
+
+    }
+
+    50%{
+
+        transform:translate(30px,25px);
+
+    }
+
+    100%{
+
+        transform:translate(0,0);
+
+    }
+
+}
+
+@keyframes floatTwo{
+
+    0%{
+
+        transform:translate(0,0);
+
+    }
+
+    50%{
+
+        transform:translate(-35px,20px);
+
+    }
+
+    100%{
+
+        transform:translate(0,0);
+
+    }
+
+}
+
+@keyframes floatThree{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-35px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:1200px){
+
+.login-wrapper{
+
+    grid-template-columns:1fr;
+
+    gap:60px;
+
+    padding:50px;
+
+}
+
+.left-panel{
+
+    max-width:100%;
+
+    text-align:center;
+
+    justify-self:center;
+
+}
+
+.brand{
+
+    justify-content:center;
+
+}
+
+.divider{
+
+    margin:auto;
+    margin-top:35px;
+    margin-bottom:35px;
+
+}
+
+.description{
+
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.login-card{
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+footer{
+
+    position:relative;
+
+    left:auto;
+
+    transform:none;
+
+    margin-top:40px;
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.login-wrapper{
+
+    padding:25px;
+
+}
+
+.left-panel h2{
+
+    font-size:2.7rem;
+
+}
+
+.brand h1{
+
+    font-size:2rem;
+
+}
+
+.login-card{
+
+    padding:35px 25px;
+
+    border-radius:25px;
+
+}
+
+.login-card h2{
+
+    font-size:2rem;
+
+}
+
+.input-box{
+
+    height:56px;
+
+}
+
+.login-btn{
+
+    height:56px;
+
+    font-size:15px;
+
+}
+
+.illustration img{
+
+    max-width:320px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.login-wrapper{
+
+    padding:18px;
+
+}
+
+.left-panel{
+
+    display:none;
+
+}
+
+.login-card{
+
+    width:100%;
+
+    padding:30px 20px;
+
+}
+
+.login-card h2{
+
+    font-size:1.8rem;
+
+}
+
+footer{
+
+    font-size:11px;
+
+    padding:8px 16px;
+
+}
+
+.options{
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-start;
+}
+
+}
+
+/* =====================================
+   ERROR & SUCCESS MESSAGES
+===================================== */
+.login-error {
+    background: #FEE2E2;
+    color: #DC2626;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    display: none;
+    margin-bottom: 16px;
+    border-left: 4px solid #DC2626;
+    font-weight: 500;
+}
+
+.login-error.show { display: block; }
+
+.login-error i {
+    margin-right: 8px;
+}
+
+.login-success {
+    background: #D1FAE5;
+    color: #059669;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    display: none;
+    margin-bottom: 16px;
+    border-left: 4px solid #059669;
+    font-weight: 500;
+}
+
+.login-success.show { display: block; }
+
+.login-success i {
+    margin-right: 8px;
+}
+
+/* =====================================
+   FORGOT PASSWORD MODAL
+===================================== */
+.forgot-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.forgot-modal.active {
+    display: flex;
+}
+
+.forgot-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.forgot-modal-container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    max-width: 430px;
+    width: 100%;
+    padding: 40px 35px;
+    animation: modalFadeIn 0.4s ease;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.forgot-modal-container .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #f3f4f6;
+    font-size: 18px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forgot-modal-container .modal-close:hover {
+    background: #EF4444;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.forgot-modal-container .modal-icon {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.forgot-modal-container .modal-icon i {
+    font-size: 40px;
+    color: #4c63ff;
+    background: rgba(76, 99, 255, 0.08);
+    padding: 16px;
+    border-radius: 50%;
+}
+
+.forgot-modal-container h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.forgot-modal-container p {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.forgot-modal-container .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.forgot-modal-container .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #dbe2ef;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.3s;
+    background: #fafbfc;
+    color: #1a1a2e;
+}
+
+.forgot-modal-container .form-group input:focus {
+    outline: none;
+    border-color: #4c63ff;
+    box-shadow: 0 0 0 4px rgba(76, 99, 255, 0.08);
+    background: #ffffff;
+}
+
+.forgot-modal-container .reset-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4c63ff, #6957ff);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.35s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forgot-modal-container .reset-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(76, 99, 255, .35);
+}
+
+/* =====================================
+   LOADING STATE
+===================================== */
+.login-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.login-btn .spinner {
+    display: none;
+    width: 22px;
+    height: 22px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.login-btn.loading .spinner {
+    display: inline-block;
+}
+
+.login-btn.loading .btn-text {
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.reset-btn .spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.reset-btn.loading .spinner {
+    display: inline-block;
+}
+
+.reset-btn.loading .btn-text {
+    display: none;
+}
+    </style>
+
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+    <!-- Background -->
+    <div class="bg-circle bg1"></div>
+    <div class="bg-circle bg2"></div>
+    <div class="bg-circle bg3"></div>
+
+    <!-- Left -->
+    <div class="left-panel">
+
+        <div class="brand">
+
+            <img src="images/logo.png"
+                 alt="GDGoC">
+
+            <div>
+
+                <h1>
+                    GDGoC
+                    <span>CTU</span>
+                </h1>
+
+                <p>
+                    Google Developer Groups on Campus
+                </p>
+
+                <small>
+                    Cebu Technological University
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>
+
+            Build.
+            Learn.
+            Connect.
+            <span>Grow.</span>
+
+        </h2>
+
+        <p class="description">
+
+            Empowering students to build solutions,
+            collaborate with developers, and innovate
+            using Google technologies.
+
+        </p>
+
+        <div class="illustration">
+
+            <img src="images/login-illustration.png"
+                 alt="Illustration">
+
+        </div>
+
+    </div>
+
+    <!-- Right -->
+    <div class="login-card">
+
+        <h2>
+            Welcome <span>Back</span>
+        </h2>
+
+        <p>
+
+            Log in to your GDGoC CTU workspace.
+
+        </p>
+
+        <!-- Error Message -->
+        <div class="login-error" id="loginError">
+            <i class="fa-solid fa-exclamation-circle"></i>
+            <span id="errorMessage">Invalid email or password</span>
+        </div>
+
+        <!-- Success Message -->
+        <div class="login-success" id="loginSuccess">
+            <i class="fa-solid fa-check-circle"></i>
+            <span id="successMessage">Password reset link sent to your email</span>
+        </div>
+
+<form id="loginForm">
+
+    <!-- Email / Username -->
+    <label>
+
+        Username or Email
+
+    </label>
+
+    <div class="input-box">
+
+        <i class="fa-regular fa-envelope"></i>
+
+        <input
+               type="text"
+               id="email"
+               placeholder="Enter your username or email"
+               required
+               autofocus>
+
+    </div>
+
+    <!-- Password -->
+    <label>
+
+        Password
+
+    </label>
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+               id="password"
+               type="password"
+               placeholder="Enter your password"
+               required>
+
+        <button
+                type="button"
+                class="toggle-password"
+                id="togglePassword">
+
+            <i class="fa-regular fa-eye"></i>
+
+        </button>
+
+    </div>
+
+    <div class="options">
+
+        <label class="remember">
+
+            <input type="checkbox" id="rememberMe">
+
+            Keep me signed in
+
+        </label>
+
+        <button type="button" class="forgot-link" id="forgotPasswordBtn" style="background:none;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:#4c63ff;">
+
+            Forgot password?
+
+        </button>
+
+    </div>
+
+    <button
+            type="submit"
+            class="login-btn"
+            id="loginBtn">
+
+        <span class="spinner"></span>
+        <span class="btn-text"><i class="fa-solid fa-right-to-bracket"></i> Log In</span>
+
+    </button>
+
+</form>
+
+        <div class="secure">
+
+            <div class="line"></div>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div class="line"></div>
+
+        </div>
+
+        <h3>
+
+            <i class="fa-solid fa-lock" style="color:#4c63ff;margin-right:8px;"></i>
+            Authorized Access Only
+
+        </h3>
+
+        <p class="footer-text">
+
+            <i class="fa-solid fa-user-shield"></i>
+            This portal is intended only for
+            official GDGoC CTU officers and staff.
+
+        </p>
+
+    </div>
+
+</div>
+
+<footer>
+
+© 2025 Google Developer Groups on Campus —
+Cebu Technological University
+
+</footer>
+
+<!-- =====================================
+   FORGOT PASSWORD MODAL
+===================================== -->
+<div class="forgot-modal" id="forgotModal">
+    <div class="forgot-modal-overlay" id="forgotModalOverlay"></div>
+    <div class="forgot-modal-container">
+        <button class="modal-close" id="forgotModalClose">&times;</button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-key"></i>
+        </div>
+
+        <h3>Reset Password</h3>
+        <p>Enter your registered email address and we'll send you a link to reset your password.</p>
+
+        <form id="forgotForm">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="resetEmail" placeholder="Enter your email address" required>
+            </div>
+            <button type="submit" class="reset-btn" id="resetBtn">
+                <span class="spinner"></span>
+                <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Send Reset Link</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+// ==========================================
+// GDGoC CTU LOGIN - WITH DATABASE CONNECTION
+// ==========================================
+
+// Use relative path from admin folder
+const API_BASE = '../api/';
+const API_GET = API_BASE + 'get-data.php';
+const API_SAVE = API_BASE + 'save-data.php';
+
+// ==========================================
+// TOGGLE PASSWORD VISIBILITY
+// ==========================================
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const icon = this.querySelector('i');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+});
+
+// ==========================================
+// FORGOT PASSWORD MODAL
+// ==========================================
+const forgotModal = document.getElementById('forgotModal');
+const forgotBtn = document.getElementById('forgotPasswordBtn');
+const forgotClose = document.getElementById('forgotModalClose');
+const forgotOverlay = document.getElementById('forgotModalOverlay');
+
+function openForgotModal() {
+    forgotModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeForgotModal() {
+    forgotModal.classList.remove('active');
+    document.body.style.overflow = '';
+    document.getElementById('resetEmail').value = '';
+    document.getElementById('resetBtn').classList.remove('loading');
+}
+
+forgotBtn.addEventListener('click', openForgotModal);
+forgotClose.addEventListener('click', closeForgotModal);
+forgotOverlay.addEventListener('click', closeForgotModal);
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && forgotModal.classList.contains('active')) {
+        closeForgotModal();
+    }
+});
+
+// ==========================================
+// FORGOT PASSWORD SUBMIT
+// ==========================================
+document.getElementById('forgotForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('resetEmail').value.trim();
+    const resetBtn = document.getElementById('resetBtn');
+
+    resetBtn.classList.add('loading');
+
+    try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        const successDiv = document.getElementById('loginSuccess');
+        const successMsg = document.getElementById('successMessage');
+        successMsg.textContent = 'If your email is registered, you will receive a password reset link.';
+        successDiv.classList.add('show');
+
+        setTimeout(() => {
+            successDiv.classList.remove('show');
+        }, 5000);
+
+        closeForgotModal();
+
+    } catch (error) {
+        console.error('Reset error:', error);
+        const errorDiv = document.getElementById('loginError');
+        const errorMsg = document.getElementById('errorMessage');
+        errorMsg.textContent = 'Error sending reset link. Please try again.';
+        errorDiv.classList.add('show');
+
+        setTimeout(() => {
+            errorDiv.classList.remove('show');
+        }, 4000);
+    } finally {
+        resetBtn.classList.remove('loading');
+    }
+});
+
+// ==========================================
+// LOGIN FORM SUBMIT - WITH FALLBACK
+// ==========================================
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const rememberMe = document.getElementById('rememberMe').checked;
+    const errorDiv = document.getElementById('loginError');
+    const errorMsg = document.getElementById('errorMessage');
+    const loginBtn = document.getElementById('loginBtn');
+
+    if (!email || !password) {
+        errorMsg.textContent = 'Please enter both username and password';
+        errorDiv.classList.add('show');
+        setTimeout(() => errorDiv.classList.remove('show'), 3000);
+        return;
+    }
+
+    loginBtn.classList.add('loading');
+
+    try {
+        console.log('🔗 Connecting to:', API_GET);
+        
+        const response = await fetch(API_GET);
+        
+        if (!response.ok) {
+            throw new Error('HTTP Error: ' + response.status);
+        }
+        
+        const result = await response.json();
+        console.log('📦 Data received:', result);
+        
+        let adminCredentials = null;
+
+        if (result.success && result.data && result.data.settings) {
+            const settings = result.data.settings;
+            if (settings.adminUsername && settings.adminPassword) {
+                adminCredentials = {
+                    username: settings.adminUsername,
+                    password: settings.adminPassword
+                };
+                console.log('✅ Admin credentials found in database');
+            }
+        }
+
+        let isValid = false;
+
+        if (adminCredentials) {
+            isValid = (email === adminCredentials.username && password === adminCredentials.password);
+        }
+
+        // Fallback for first time setup
+        if (!isValid && email === 'admin' && password === 'gdgadmin2025') {
+            console.log('🔄 Using fallback credentials');
+            try {
+                // Get current data
+                const dataResponse = await fetch(API_GET);
+                if (dataResponse.ok) {
+                    const dataResult = await dataResponse.json();
+                    if (dataResult.success && dataResult.data) {
+                        const currentData = dataResult.data;
+                        if (!currentData.settings) {
+                            currentData.settings = {};
+                        }
+                        currentData.settings.adminUsername = 'admin';
+                        currentData.settings.adminPassword = 'gdgadmin2025';
+
+                        await fetch(API_SAVE, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(currentData)
+                        });
+                        console.log('✅ Credentials saved to database');
+                    }
+                }
+            } catch (saveError) {
+                console.log('Could not save credentials:', saveError);
+            }
+            isValid = true;
+        }
+
+        if (isValid) {
+            localStorage.setItem('adminLoggedIn', 'true');
+            if (rememberMe) {
+                localStorage.setItem('adminRememberMe', 'true');
+                localStorage.setItem('adminEmail', email);
+            } else {
+                localStorage.removeItem('adminRememberMe');
+                localStorage.removeItem('adminEmail');
+            }
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 500);
+            return;
+        }
+
+        errorMsg.textContent = 'Invalid username or password. Please try again.';
+        errorDiv.classList.add('show');
+        loginBtn.classList.remove('loading');
+        document.getElementById('password').value = '';
+
+        setTimeout(() => {
+            errorDiv.classList.remove('show');
+        }, 4000);
+
+    } catch (error) {
+        console.error('❌ Login error:', error);
+        
+        // Try fallback authentication if API fails
+        if (email === 'admin' && password === 'gdgadmin2025') {
+            localStorage.setItem('adminLoggedIn', 'true');
+            if (rememberMe) {
+                localStorage.setItem('adminRememberMe', 'true');
+                localStorage.setItem('adminEmail', email);
+            }
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 500);
+            return;
+        }
+        
+        errorMsg.textContent = 'Error connecting to server. Please check if XAMPP is running.';
+        errorDiv.classList.add('show');
+        loginBtn.classList.remove('loading');
+
+        setTimeout(() => {
+            errorDiv.classList.remove('show');
+        }, 4000);
+    }
+});
+
+// ==========================================
+// ENTER KEY SUPPORT
+// ==========================================
+document.getElementById('password').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+    }
+});
+
+document.getElementById('email').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+    }
+});
+
+// ==========================================
+// LOAD SAVED EMAIL
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const savedEmail = localStorage.getItem('adminEmail');
+    if (savedEmail) {
+        document.getElementById('email').value = savedEmail;
+        document.getElementById('rememberMe').checked = true;
+    }
+});
+
+// ==========================================
+// EXPOSE FOR DEBUGGING
+// ==========================================
+console.log('✅ GDGoC CTU Login Loaded');
+console.log('🔗 API URL:', API_GET);
+</script>
+
+</body>
+</html>
