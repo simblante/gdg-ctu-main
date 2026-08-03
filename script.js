@@ -175,7 +175,7 @@ const staticOfficers = {
       {
         id: "tech-1",
         name: "James Niño Tan",
-        role: "Tech Lead",
+        role: "Chief-Technology-Officer",
         department: "TECHNOLOGY",
         sy: "S.Y. 2025-2026",
         birthday: "April 18, 2000",
