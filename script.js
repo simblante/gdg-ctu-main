@@ -825,457 +825,799 @@ const API_SAVE = API_BASE + "save-data.php";
 const BASE_URL = "";
 
 // ==========================================
-// GALLERY - STATIC DATA
+// GALLERY - WITH ALBUM FEATURE & SLIDER
 // ==========================================
 
-const staticGallery = [
-  {
-    title: "Google Cloud Workshop",
-    category: "workshop",
-    date: "June 15, 2024",
-    venue: "CTU Main Campus",
-    description: "Hands-on workshop on Google Cloud Platform for students.",
-    image: "https://picsum.photos/600/400?random=1"
-  },
-  {
-    title: "TechConnect 2024",
-    category: "event",
-    date: "March 10, 2024",
-    venue: "CTU Auditorium",
-    description: "Our flagship event bringing together students and industry professionals.",
-    image: "https://picsum.photos/600/400?random=2"
-  },
-  {
-    title: "Android Bootcamp",
-    category: "bootcamp",
-    date: "August 20, 2024",
-    venue: "CTU Main Campus",
-    description: "Intensive 3-day bootcamp on Android app development.",
-    image: "https://picsum.photos/600/400?random=3"
-  },
-  {
-    title: "GDG Community Meetup",
-    category: "community",
-    date: "September 5, 2024",
-    venue: "CTU Main Campus",
-    description: "Monthly community meetup for developers and tech enthusiasts.",
-    image: "https://picsum.photos/600/400?random=4"
-  }
+// Static gallery data with multiple photos per album
+const galleryAlbums = [
+    {
+        id: 0,
+        title: "Google Cloud Workshop",
+        category: "workshop",
+        date: "June 15, 2024",
+        venue: "CTU Main Campus",
+        description: "Hands-on workshop on Google Cloud Platform for students. Participants learned about cloud computing fundamentals, deployed their first cloud application, and explored Google Cloud services.",
+        cover: "includes/images/gallery/workshop1.jpg",
+        photos: [
+            "includes/images/gallery/workshop1.jpg",
+            "includes/images/gallery/workshop2.jpg",
+            "includes/images/gallery/workshop3.jpg",
+            "includes/images/gallery/workshop4.jpg",
+            "includes/images/gallery/workshop5.jpg",
+            "includes/images/gallery/workshop6.jpg",
+            "includes/images/gallery/workshop7.jpg",
+            "includes/images/gallery/workshop8.jpg"
+        ]
+    },
+    {
+        id: 1,
+        title: "TechConnect 2024",
+        category: "event",
+        date: "March 10, 2024",
+        venue: "CTU Auditorium",
+        description: "Our flagship event bringing together students and industry professionals. The event featured keynote speeches, panel discussions, and networking opportunities.",
+        cover: "includes/images/gallery/event1.jpg",
+        photos: [
+            "includes/images/gallery/event1.jpg",
+            "includes/images/gallery/event2.jpg",
+            "includes/images/gallery/event3.jpg",
+            "includes/images/gallery/event4.jpg",
+            "includes/images/gallery/event5.jpg",
+            "includes/images/gallery/event6.jpg",
+            "includes/images/gallery/event7.jpg",
+            "includes/images/gallery/event8.jpg",
+            "includes/images/gallery/event9.jpg",
+            "includes/images/gallery/event10.jpg",
+            "includes/images/gallery/event11.jpg",
+            "includes/images/gallery/event12.jpg"
+        ]
+    },
+    {
+        id: 2,
+        title: "Android Bootcamp",
+        category: "bootcamp",
+        date: "August 20, 2024",
+        venue: "CTU Main Campus",
+        description: "Intensive 3-day bootcamp on Android app development. Students learned Kotlin, Android SDK, and built their first mobile application.",
+        cover: "includes/images/gallery/bootcamp1.jpg",
+        photos: [
+            "includes/images/gallery/bootcamp1.jpg",
+            "includes/images/gallery/bootcamp2.jpg",
+            "includes/images/gallery/bootcamp3.jpg",
+            "includes/images/gallery/bootcamp4.jpg",
+            "includes/images/gallery/bootcamp5.jpg",
+            "includes/images/gallery/bootcamp6.jpg"
+        ]
+    },
+    {
+        id: 3,
+        title: "GDG Community Meetup",
+        category: "community",
+        date: "September 5, 2024",
+        venue: "CTU Main Campus",
+        description: "Monthly community meetup for developers and tech enthusiasts. Members shared their projects, discussed new technologies, and networked with fellow developers.",
+        cover: "includes/images/gallery/community1.jpg",
+        photos: [
+            "includes/images/gallery/community1.jpg",
+            "includes/images/gallery/community2.jpg",
+            "includes/images/gallery/community3.jpg",
+            "includes/images/gallery/community4.jpg",
+            "includes/images/gallery/community5.jpg"
+        ]
+    }
 ];
 
+let currentAlbum = null;
+let currentPhotoIndex = 0;
 let galleryFilter = "all";
 
+// ==========================================
+// RENDER GALLERY CARDS
+// ==========================================
+
 function renderGallery(filter = "all") {
-  const grid = document.getElementById("galleryGrid");
-  if (!grid) return;
-  
-  let filtered = staticGallery;
-  if (filter !== "all") {
-    filtered = staticGallery.filter((item) => item.category === filter);
-  }
-  
-  if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div class="gallery-empty">
-        <i class="fas fa-images"></i>
-        <h3>No Photos Available</h3>
-        <p>Gallery content will be available soon.</p>
-      </div>
-    `;
-    return;
-  }
-  
-  let html = "";
-  filtered.forEach((item, index) => {
-    const label = item.category.charAt(0).toUpperCase() + item.category.slice(1);
-    
-    html += `
-      <div class="gallery-card ${item.category}" data-index="${index}">
-        <div class="gallery-card-image">
-          <img src="${item.image}" alt="${item.title}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=4285F4&color=fff&size=300&bold=true'">
-          <div class="gallery-card-overlay">
-            <div class="gallery-card-content">
-              <span class="gallery-card-category">${label}</span>
-              <h3>${item.title}</h3>
-              <p>${item.description ? item.description.substring(0, 80) + (item.description.length > 80 ? "..." : "") : ""}</p>
-              <div class="gallery-card-meta">
-                <span><i class="fas fa-calendar-alt"></i> ${item.date || ""}</span>
-              </div>
-              <button class="gallery-card-btn" data-index="${index}">
-                <span>View Details</span>
-                <i class="fas fa-arrow-right"></i>
-              </button>
+    const grid = document.getElementById("galleryGrid");
+    if (!grid) return;
+
+    let filtered = galleryAlbums;
+    if (filter !== "all") {
+        filtered = galleryAlbums.filter((album) => album.category === filter);
+    }
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="gallery-empty">
+                <i class="fas fa-images"></i>
+                <h3>No Albums Available</h3>
+                <p>Gallery content will be available soon.</p>
             </div>
-          </div>
-        </div>
-        <div class="gallery-card-footer">
-          <span class="card-title">${item.title}</span>
-          <span class="card-category">${label}</span>
-        </div>
-      </div>
-    `;
-  });
-  
-  grid.innerHTML = html;
-  
-  document.querySelectorAll(".gallery-card-btn").forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const index = parseInt(this.dataset.index);
-      const data = filtered[index];
-      if (data) openGalleryModal(data);
+        `;
+        return;
+    }
+
+    let html = "";
+    filtered.forEach((album) => {
+        const label = album.category.charAt(0).toUpperCase() + album.category.slice(1);
+        const photoCount = album.photos ? album.photos.length : 0;
+
+        html += `
+            <div class="gallery-card ${album.category}" data-album="${album.id}">
+                <div class="gallery-card-image">
+                    <img src="${album.cover}" alt="${album.title}" onerror="this.src='https://picsum.photos/600/400?random=${album.id + 10}'">
+                    <div class="gallery-card-overlay">
+                        <div class="gallery-card-content">
+                            <span class="gallery-card-category">${label}</span>
+                            <h3>${album.title}</h3>
+                            <p>${album.description ? album.description.substring(0, 80) + (album.description.length > 80 ? "..." : "") : ""}</p>
+                            <div class="gallery-card-meta">
+                                <span><i class="fas fa-calendar-alt"></i> ${album.date || ""}</span>
+                                <span><i class="fas fa-images"></i> ${photoCount} Photos</span>
+                            </div>
+                            <button class="gallery-card-btn" data-album="${album.id}">
+                                <span>View Album</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card-footer">
+                    <span class="card-title">${album.title}</span>
+                    <span class="card-category">${label}</span>
+                </div>
+            </div>
+        `;
     });
-  });
-  
-  document.querySelectorAll(".gallery-card").forEach((card) => {
-    card.addEventListener("click", function () {
-      const index = parseInt(this.dataset.index);
-      const data = filtered[index];
-      if (data) openGalleryModal(data);
+
+    grid.innerHTML = html;
+
+    // Add click events
+    document.querySelectorAll(".gallery-card-btn").forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const albumId = parseInt(this.dataset.album);
+            openGalleryAlbum(albumId);
+        });
     });
-  });
+
+    document.querySelectorAll(".gallery-card").forEach((card) => {
+        card.addEventListener("click", function () {
+            const albumId = parseInt(this.dataset.album);
+            if (!isNaN(albumId)) {
+                openGalleryAlbum(albumId);
+            }
+        });
+    });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      this.classList.add("active");
-      galleryFilter = this.dataset.filter;
-      renderGallery(galleryFilter);
+// ==========================================
+// OPEN GALLERY ALBUM
+// ==========================================
+
+function openGalleryAlbum(albumId) {
+    const album = galleryAlbums.find((a) => a.id === albumId);
+    if (!album) return;
+
+    currentAlbum = album;
+    currentPhotoIndex = 0;
+
+    const modal = document.getElementById("galleryModal");
+    if (!modal) return;
+
+    // Set album info
+    const label = album.category.charAt(0).toUpperCase() + album.category.slice(1);
+    document.getElementById("galleryModalCategory").textContent = label;
+    document.getElementById("galleryModalTitle").textContent = album.title;
+    document.getElementById("galleryModalDescription").textContent = album.description || "";
+    document.getElementById("galleryModalDate").textContent = album.date || "";
+    document.getElementById("galleryModalVenue").textContent = album.venue || "";
+    document.getElementById("galleryModalDateDetail").textContent = album.date || "";
+    document.getElementById("galleryModalVenueDetail").textContent = album.venue || "";
+    document.getElementById("galleryModalTypeDetail").textContent = label;
+
+    // Set photos
+    const photos = album.photos || [album.cover];
+    const totalPhotos = photos.length;
+
+    // Update photo count
+    const photoCountEl = document.getElementById("galleryModalPhotoCount");
+    if (photoCountEl) {
+        photoCountEl.textContent = totalPhotos + " photos";
+    }
+
+    // Set main image
+    updateGalleryImage(0);
+
+    // Update counter
+    document.getElementById("galleryImageCounter").textContent = `1 / ${totalPhotos}`;
+
+    // Generate thumbnails
+    const thumbnailsContainer = document.getElementById("galleryThumbnails");
+    if (thumbnailsContainer) {
+        let thumbHtml = "";
+        photos.forEach((photo, index) => {
+            thumbHtml += `
+                <div class="gallery-thumbnail ${index === 0 ? "active" : ""}" data-index="${index}">
+                    <img src="${photo}" alt="Thumbnail ${index + 1}" onerror="this.src='https://picsum.photos/80/60?random=${index + 100}'">
+                </div>
+            `;
+        });
+        thumbnailsContainer.innerHTML = thumbHtml;
+
+        // Thumbnail click events
+        thumbnailsContainer.querySelectorAll(".gallery-thumbnail").forEach((thumb) => {
+            thumb.addEventListener("click", function () {
+                const index = parseInt(this.dataset.index);
+                currentPhotoIndex = index;
+                updateGalleryImage(index);
+            });
+        });
+    }
+
+    // Show/hide navigation buttons
+    const prevBtn = document.getElementById("galleryPrev");
+    const nextBtn = document.getElementById("galleryNext");
+    if (prevBtn) prevBtn.style.display = totalPhotos > 1 ? "flex" : "none";
+    if (nextBtn) nextBtn.style.display = totalPhotos > 1 ? "flex" : "none";
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+// ==========================================
+// UPDATE GALLERY IMAGE
+// ==========================================
+
+function updateGalleryImage(index) {
+    const photos = currentAlbum.photos || [currentAlbum.cover];
+    if (index < 0) index = photos.length - 1;
+    if (index >= photos.length) index = 0;
+
+    currentPhotoIndex = index;
+
+    // Update main image
+    const mainImage = document.getElementById("galleryModalImage");
+    if (mainImage) {
+        mainImage.src = photos[index];
+        mainImage.alt = currentAlbum.title + " - Photo " + (index + 1);
+        mainImage.onerror = function () {
+            this.src = "https://picsum.photos/600/400?random=" + (index + 50);
+        };
+    }
+
+    // Update counter
+    document.getElementById("galleryImageCounter").textContent = `${index + 1} / ${photos.length}`;
+
+    // Update thumbnails
+    const thumbnails = document.querySelectorAll(".gallery-thumbnail");
+    thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === index);
+        if (i === index) {
+            thumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
     });
-  });
-  renderGallery(galleryFilter);
+}
+
+// ==========================================
+// GALLERY NAVIGATION
+// ==========================================
+
+document.getElementById("galleryPrev")?.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (currentAlbum) {
+        const photos = currentAlbum.photos || [currentAlbum.cover];
+        currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+        updateGalleryImage(currentPhotoIndex);
+    }
 });
 
-function openGalleryModal(data) {
-  const modal = document.getElementById("galleryModal");
-  if (!modal) return;
-  
-  document.getElementById("galleryModalImage").src = data.image;
-  document.getElementById("galleryModalTitle").textContent = data.title;
-  document.getElementById("galleryModalDescription").textContent = data.description || "";
-  document.getElementById("galleryModalCategory").textContent = data.category ? data.category.charAt(0).toUpperCase() + data.category.slice(1) : "";
-  document.getElementById("galleryModalDate").textContent = data.date || "";
-  document.getElementById("galleryModalVenue").textContent = data.venue || "";
-  document.getElementById("galleryModalDateDetail").textContent = data.date || "";
-  document.getElementById("galleryModalVenueDetail").textContent = data.venue || "";
-  document.getElementById("galleryModalTypeDetail").textContent = data.category ? data.category.charAt(0).toUpperCase() + data.category.slice(1) : "";
-  document.getElementById("galleryModalDescDetail").textContent = data.description || "";
-  
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeGalleryModal() {
-  const modal = document.getElementById("galleryModal");
-  if (modal) {
-    modal.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  const closeBtn = document.getElementById("galleryModalClose");
-  const modal = document.getElementById("galleryModal");
-  const overlay = document.querySelector(".gallery-modal-overlay");
-  
-  if (closeBtn) closeBtn.addEventListener("click", closeGalleryModal);
-  if (overlay) overlay.addEventListener("click", closeGalleryModal);
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeGalleryModal();
-  });
+document.getElementById("galleryNext")?.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (currentAlbum) {
+        const photos = currentAlbum.photos || [currentAlbum.cover];
+        currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+        updateGalleryImage(currentPhotoIndex);
+    }
 });
 
 // ==========================================
-// EVENTS - STATIC DATA
+// KEYBOARD NAVIGATION
+// ==========================================
+
+document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("galleryModal");
+    if (!modal || !modal.classList.contains("active")) return;
+
+    if (e.key === "ArrowLeft") {
+        document.getElementById("galleryPrev")?.click();
+    } else if (e.key === "ArrowRight") {
+        document.getElementById("galleryNext")?.click();
+    } else if (e.key === "Escape") {
+        closeGalleryModal();
+    }
+});
+
+// ==========================================
+// TOUCH SWIPE SUPPORT
+// ==========================================
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", function (e) {
+    const modal = document.getElementById("galleryModal");
+    if (!modal || !modal.classList.contains("active")) return;
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener("touchend", function (e) {
+    const modal = document.getElementById("galleryModal");
+    if (!modal || !modal.classList.contains("active")) return;
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            document.getElementById("galleryNext")?.click();
+        } else {
+            document.getElementById("galleryPrev")?.click();
+        }
+    }
+}, { passive: true });
+
+// ==========================================
+// CLOSE GALLERY MODAL
+// ==========================================
+
+function closeGalleryModal() {
+    const modal = document.getElementById("galleryModal");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+        currentAlbum = null;
+    }
+}
+
+// ==========================================
+// FILTER BUTTONS
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            galleryFilter = this.dataset.filter;
+            renderGallery(galleryFilter);
+        });
+    });
+
+    // Modal close
+    const closeBtn = document.getElementById("galleryModalClose");
+    const overlay = document.querySelector(".gallery-modal-overlay");
+
+    if (closeBtn) closeBtn.addEventListener("click", closeGalleryModal);
+    if (overlay) overlay.addEventListener("click", closeGalleryModal);
+
+    // Initial render
+    renderGallery(galleryFilter);
+});
+
+// ==========================================
+// EVENTS - STATIC DATA (Simple: Upcoming & Finished)
 // ==========================================
 
 const staticEvents = [
-  {
-    title: "Google Cloud Workshop",
-    category: "Workshop",
-    status: "upcoming",
-    date: "June 15, 2024",
-    time: "9:00 AM - 5:00 PM",
-    venue: "CTU Main Campus",
-    venue_type: "offline",
-    online_link: "",
-    slots: "50 slots",
-    description: "Learn the basics of Google Cloud Platform and build your first cloud application.",
-    registration_link: "#",
-    speakers: [
-      { name: "John Doe", role: "Google Cloud Expert" },
-      { name: "Jane Smith", role: "GDG Lead" }
-    ],
-    image: "https://picsum.photos/600/400?random=10"
-  },
-  {
-    title: "GDG Hackathon 2024",
-    category: "Hackathon",
-    status: "ongoing",
-    date: "June 20, 2024",
-    time: "8:00 AM - 8:00 PM",
-    venue: "Online",
-    venue_type: "online",
-    online_link: "https://meet.google.com/xxx",
-    slots: "Unlimited",
-    description: "24-hour hackathon to build innovative solutions for real-world problems.",
-    registration_link: "#",
-    speakers: [
-      { name: "Mark Johnson", role: "Hackathon Mentor" }
-    ],
-    image: "https://picsum.photos/600/400?random=11"
-  },
-  {
-    title: "Tech Talk: Future of AI",
-    category: "Tech Talk",
-    status: "past",
-    date: "May 10, 2024",
-    time: "2:00 PM - 5:00 PM",
-    venue: "CTU Auditorium",
-    venue_type: "offline",
-    online_link: "",
-    slots: "100 slots",
-    description: "Industry experts discuss the future of artificial intelligence and machine learning.",
-    registration_link: "#",
-    speakers: [
-      { name: "Dr. Alan Turing", role: "AI Researcher" }
-    ],
-    image: "https://picsum.photos/600/400?random=12"
-  }
+    {
+        id: 1,
+        title: "Google Cloud Workshop",
+        category: "Workshop",
+        status: "upcoming",
+        date: "June 15, 2024",
+        time: "9:00 AM - 5:00 PM",
+        venue: "CTU Main Campus",
+        venue_type: "offline",
+        online_link: "",
+        slots: "50 slots",
+        description: "Learn the basics of Google Cloud Platform and build your first cloud application.",
+        registration_link: "#",
+        image: "includes/images/events/event1.jpg",
+        hosts: [
+            {
+                name: "John Doe",
+                role: "Google Cloud Expert",
+                image: "includes/images/hosts/john-doe.jpg",
+                portfolio: "https://linkedin.com/in/johndoe"
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: "GDG Hackathon 2024",
+        category: "Hackathon",
+        status: "upcoming",
+        date: "June 20, 2024",
+        time: "8:00 AM - 8:00 PM",
+        venue: "Online",
+        venue_type: "online",
+        online_link: "https://meet.google.com/xxx",
+        slots: "Unlimited",
+        description: "24-hour hackathon to build innovative solutions for real-world problems.",
+        registration_link: "#",
+        image: "includes/images/events/event2.jpg",
+        hosts: [
+            {
+                name: "Mark Johnson",
+                role: "Hackathon Mentor",
+                image: "includes/images/hosts/mark-johnson.jpg",
+                portfolio: "https://linkedin.com/in/markjohnson"
+            }
+        ]
+    },
+    {
+        id: 3,
+        title: "Tech Talk: Future of AI",
+        category: "Tech Talk",
+        status: "past",
+        date: "May 10, 2024",
+        time: "2:00 PM - 5:00 PM",
+        venue: "CTU Auditorium",
+        venue_type: "offline",
+        online_link: "",
+        slots: "100 slots",
+        description: "Industry experts discuss the future of artificial intelligence and machine learning.",
+        registration_link: "#",
+        image: "includes/images/events/event3.jpg",
+        hosts: [
+            {
+                name: "Dr. Alan Turing",
+                role: "AI Researcher",
+                image: "includes/images/hosts/alan-turing.jpg",
+                portfolio: "https://linkedin.com/in/alanturing"
+            }
+        ]
+    }
 ];
 
-function renderEvents() {
-  const grid = document.getElementById("eventsGrid");
-  if (!grid) return;
-  
-  if (staticEvents.length === 0) {
-    grid.innerHTML = `
-      <div class="gallery-empty" style="grid-column:1/-1;">
-        <i class="fas fa-calendar-alt"></i>
-        <h3>No Events Scheduled</h3>
-        <p>Upcoming events will be announced soon.</p>
-      </div>
-    `;
-    return;
-  }
-  
-  const statusColors = { ongoing: "#34A853", upcoming: "#4285F4", past: "#888" };
-  const statusLabels = { ongoing: "Ongoing", upcoming: "Upcoming", past: "Finished" };
-  const venueIcons = { online: "fa-wifi", offline: "fa-map-marker-alt", hybrid: "fa-globe" };
-  
-  let html = "";
-  staticEvents.forEach((item, index) => {
-    const speakers = item.speakers || [];
-    let speakersHtml = "";
-    if (speakers.length > 0) {
-      speakersHtml = speakers.map(s => `<span class="speaker-tag">${s.name}${s.role ? " · " + s.role : ""}</span>`).join("");
+let currentEventFilter = "all";
+
+// ==========================================
+// RENDER EVENTS - WITH CLICK HANDLERS
+// ==========================================
+
+function renderEvents(filter = "all") {
+    const grid = document.getElementById("eventsGrid");
+    if (!grid) return;
+
+    let filtered = staticEvents;
+    if (filter !== "all") {
+        filtered = staticEvents.filter((item) => item.status === filter);
     }
-    
-    const venueType = item.venue_type || "offline";
-    const venueIcon = venueIcons[venueType] || "fa-map-marker-alt";
-    const venueLabel = venueType === "online" ? "Online" : venueType === "hybrid" ? "Hybrid" : "In-Person";
-    
-    html += `
-      <div class="event-card" data-status="${item.status || "upcoming"}" data-index="${index}">
-        <div class="event-card-inner">
-          <div class="event-banner">
-            <img src="${item.image}" alt="${item.title}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=4285F4&color=fff&size=300&bold=true'">
-            <span class="event-badge ${item.status || "upcoming"}" style="background:${statusColors[item.status] || "#4285F4"}">
-              <i class="fas ${item.status === "ongoing" ? "fa-circle" : item.status === "upcoming" ? "fa-calendar-alt" : "fa-check-circle"}"></i> 
-              ${statusLabels[item.status] || "Upcoming"}
-            </span>
-            <span class="event-venue-badge" style="position:absolute;bottom:14px;right:14px;padding:4px 12px;border-radius:50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);color:#fff;font-size:10px;font-weight:500;display:flex;align-items:center;gap:6px;z-index:2;">
-              <i class="fas ${venueIcon}"></i> ${venueLabel}
-            </span>
-            <div class="event-hover-info">
-              <div class="event-hover-content">
-                <span class="event-category">
-                  <i class="fas ${item.category === "Workshop" ? "fa-code" : item.category === "Hackathon" ? "fa-laptop-code" : item.category === "Tech Talk" ? "fa-cloud" : "fa-users"}"></i> 
-                  ${item.category || "Event"}
-                </span>
-                <h3>${item.title}</h3>
-                <p>${item.description || ""}</p>
-                ${speakersHtml ? `<div class="event-speakers" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;">${speakersHtml}</div>` : ""}
-                <div class="event-meta">
-                  <span><i class="fas fa-calendar-alt"></i> ${item.date || ""}</span>
-                  <span><i class="fas fa-clock"></i> ${item.time || ""}</span>
-                  <span><i class="fas ${venueIcon}"></i> ${item.venue || item.online_link || "TBA"}</span>
-                  <span><i class="fas fa-users"></i> ${item.slots || "Unlimited"}</span>
-                </div>
-                <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                  ${item.registration_link ? `<a href="${item.registration_link}" target="_blank" class="event-btn" style="text-decoration:none;">
-                    ${item.status === "past" ? "View Recap" : "Register Now"} 
-                    <i class="fas fa-arrow-right"></i>
-                  </a>` : ""}
-                  ${item.online_link && item.venue_type !== "offline" ? `<a href="${item.online_link}" target="_blank" class="event-btn" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);text-decoration:none;">
-                    <i class="fas fa-video"></i> Join Online
-                  </a>` : ""}
-                </div>
-              </div>
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="gallery-empty" style="grid-column:1/-1;">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>No Events Found</h3>
+                <p>No events available for this category.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-  
-  grid.innerHTML = html;
-  
-  document.querySelectorAll(".event-card").forEach((card) => {
-    card.addEventListener("click", function () {
-      const index = parseInt(this.dataset.index);
-      openEventModal(index);
+        `;
+        return;
+    }
+
+    const statusColors = { upcoming: "#4285F4", past: "#888" };
+    const statusLabels = { upcoming: "Upcoming", past: "Finished" };
+    const venueIcons = { online: "fa-wifi", offline: "fa-map-marker-alt", hybrid: "fa-globe" };
+    const venueLabels = { online: "Online", offline: "In-Person", hybrid: "Hybrid" };
+
+    let html = "";
+    filtered.forEach((item, index) => {
+        const venueType = item.venue_type || "offline";
+        const venueIcon = venueIcons[venueType] || "fa-map-marker-alt";
+        const venueLabel = venueLabels[venueType] || "In-Person";
+
+        let hostsHtml = "";
+        if (item.hosts && item.hosts.length > 0) {
+            hostsHtml = item.hosts.map(host => `
+                <div class="event-host-avatar" title="${host.name} - ${host.role}" style="display:inline-block;margin-right:-8px;">
+                    <img src="${host.image || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(host.name) + '&background=4285F4&color=fff&size=30&bold=true'}" 
+                         alt="${host.name}" 
+                         style="width:32px;height:32px;border-radius:50%;border:2px solid #fff;object-fit:cover;"
+                         onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(host.name)}&background=4285F4&color=fff&size=30&bold=true'">
+                </div>
+            `).join('');
+        }
+
+        html += `
+            <div class="event-card" data-status="${item.status}" data-index="${index}">
+                <div class="event-card-inner">
+                    <div class="event-banner">
+                        <img src="${item.image}" alt="${item.title}" onerror="this.src='https://picsum.photos/600/400?random=${item.id + 10}'">
+                        <span class="event-badge ${item.status}" style="background:${statusColors[item.status] || '#4285F4'}">
+                            <i class="fas ${item.status === 'upcoming' ? 'fa-calendar-alt' : 'fa-check-circle'}"></i> 
+                            ${statusLabels[item.status] || 'Upcoming'}
+                        </span>
+                        <span class="event-venue-badge" style="position:absolute;bottom:14px;right:14px;padding:4px 12px;border-radius:50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);color:#fff;font-size:10px;font-weight:500;display:flex;align-items:center;gap:6px;z-index:2;">
+                            <i class="fas ${venueIcon}"></i> ${venueLabel}
+                        </span>
+                        <div class="event-hover-info">
+                            <div class="event-hover-content">
+                                <span class="event-category">
+                                    <i class="fas ${item.category === 'Workshop' ? 'fa-code' : item.category === 'Hackathon' ? 'fa-laptop-code' : item.category === 'Tech Talk' ? 'fa-cloud' : 'fa-users'}"></i> 
+                                    ${item.category || 'Event'}
+                                </span>
+                                <h3>${item.title}</h3>
+                                <p>${item.description ? item.description.substring(0, 80) + (item.description.length > 80 ? "..." : "") : ""}</p>
+                                ${hostsHtml ? `<div class="event-hosts" style="display:flex;align-items:center;gap:4px;margin-bottom:8px;flex-wrap:wrap;"><span style="color:rgba(255,255,255,0.4);font-size:10px;margin-right:4px;">Hosts:</span> ${hostsHtml}</div>` : ''}
+                                <div class="event-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> ${item.date || ''}</span>
+                                    <span><i class="fas fa-clock"></i> ${item.time || ''}</span>
+                                    <span><i class="fas ${venueIcon}"></i> ${item.venue || item.online_link || 'TBA'}</span>
+                                    <span><i class="fas fa-users"></i> ${item.slots || 'Unlimited'}</span>
+                                </div>
+                                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                                    ${item.registration_link && item.status !== 'past' ? `<a href="${item.registration_link}" target="_blank" class="event-btn" style="text-decoration:none;">
+                                        Register Now 
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>` : ''}
+                                    ${item.status === 'past' ? `<a href="#" class="event-btn" style="text-decoration:none;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);">
+                                        <i class="fas fa-eye"></i> View Recap
+                                    </a>` : ''}
+                                    ${item.online_link && item.venue_type !== 'offline' ? `<a href="${item.online_link}" target="_blank" class="event-btn" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);text-decoration:none;">
+                                        <i class="fas fa-video"></i> Join Online
+                                    </a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
     });
-  });
+
+    grid.innerHTML = html;
+
+    // ===== IMPORTANT: Add click event to open modal =====
+    document.querySelectorAll(".event-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+            // Prevent if clicking on a link or button inside
+            if (e.target.closest("a") || e.target.closest(".event-btn")) {
+                return;
+            }
+            const index = parseInt(this.dataset.index);
+            if (!isNaN(index)) {
+                openEventModal(index);
+            }
+        });
+    });
 }
+
+// ==========================================
+// OPEN EVENT MODAL
+// ==========================================
 
 function openEventModal(index) {
-  const data = staticEvents[index];
-  if (!data) return;
-  
-  const modal = document.getElementById("eventModal");
-  if (!modal) return;
-  
-  document.getElementById("eventModalImage").src = data.image || "https://ui-avatars.com/api/?name=Event&background=4285F4&color=fff&size=300&bold=true";
-  document.getElementById("eventModalImage").alt = data.title;
-  
-  const badge = document.getElementById("eventModalBadge");
-  const statusColors = { ongoing: "#34A853", upcoming: "#4285F4", past: "#888" };
-  const statusLabels = { ongoing: "Ongoing", upcoming: "Upcoming", past: "Finished" };
-  badge.textContent = statusLabels[data.status] || "Upcoming";
-  badge.style.background = statusColors[data.status] || "#4285F4";
-  
-  const venueType = data.venue_type || "offline";
-  const venueIcons = { online: "fa-wifi", offline: "fa-map-marker-alt", hybrid: "fa-globe" };
-  const venueLabels = { online: "Online", offline: "In-Person", hybrid: "Hybrid" };
-  
-  const venueIconEl = document.getElementById("eventModalVenueIcon");
-  const venueTypeEl = document.getElementById("eventModalVenueType");
-  const venueBadgeEl = document.getElementById("eventModalVenueBadge");
-  
-  if (venueIconEl) venueIconEl.className = "fas " + (venueIcons[venueType] || "fa-map-marker-alt");
-  if (venueTypeEl) venueTypeEl.textContent = venueLabels[venueType] || "In-Person";
-  if (venueBadgeEl) venueBadgeEl.style.display = "flex";
-  
-  document.getElementById("eventModalCategory").textContent = data.category || "Event";
-  document.getElementById("eventModalTitle").textContent = data.title;
-  document.getElementById("eventModalDescription").textContent = data.description || "No description available.";
-  document.getElementById("eventModalDate").textContent = data.date || "TBA";
-  document.getElementById("eventModalTime").textContent = data.time || "TBA";
-  
-  let venueDisplay = data.venue || "TBA";
-  if (venueType === "online" && data.online_link) {
-    venueDisplay = "Online Event";
-  } else if (venueType === "hybrid") {
-    venueDisplay = data.venue ? data.venue + " + Online" : "Hybrid Event";
-  }
-  document.getElementById("eventModalVenue").textContent = venueDisplay;
-  document.getElementById("eventModalSlots").textContent = data.slots || "Unlimited";
-  
-  const onlineBox = document.getElementById("eventModalOnlineBox");
-  const onlineLink = document.getElementById("eventModalOnlineLink");
-  if (onlineBox && onlineLink) {
-    if (data.online_link && venueType !== "offline") {
-      onlineBox.style.display = "block";
-      onlineLink.innerHTML = `<a href="${data.online_link}" target="_blank" style="color:#4285F4;text-decoration:none;">${data.online_link}</a>`;
-    } else {
-      onlineBox.style.display = "none";
+    const data = staticEvents[index];
+    if (!data) {
+        console.error("Event not found at index:", index);
+        return;
     }
-  }
-  
-  const regBox = document.getElementById("eventModalRegBox");
-  const regLink = document.getElementById("eventModalRegLink");
-  const registerBtn = document.getElementById("eventRegisterBtn");
-  if (regBox && regLink && registerBtn) {
-    if (data.registration_link) {
-      regBox.style.display = "block";
-      regLink.innerHTML = `<a href="${data.registration_link}" target="_blank" style="color:#4285F4;text-decoration:none;">Register Here</a>`;
-      registerBtn.href = data.registration_link;
-      registerBtn.style.display = "flex";
-    } else {
-      regBox.style.display = "none";
-      registerBtn.style.display = "none";
+
+    const modal = document.getElementById("eventModal");
+    if (!modal) {
+        console.error("Modal not found!");
+        return;
     }
-  }
-  
-  const speakersContainer = document.getElementById("eventSpeakersContainer");
-  const speakerSingle = document.getElementById("eventSpeakerSingle");
-  const speakersSection = document.getElementById("eventSpeakersSection");
-  
-  const speakers = data.speakers || [];
-  
-  if (speakersContainer && speakersSection && speakerSingle) {
-    if (speakers.length > 0) {
-      speakersSection.style.display = "block";
-      speakerSingle.style.display = "none";
-      
-      let speakersHtml = "";
-      speakers.forEach((s) => {
-        const imgSrc = s.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=4285F4&color=fff&size=200&bold=true`;
-        speakersHtml += `
-          <div class="speaker-item-modal" style="display:flex;align-items:center;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.04);margin-bottom:10px;">
-            <img src="${imgSrc}" alt="${s.name}" style="width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid #4285F4;flex-shrink:0;" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(s.name)}&background=4285F4&color=fff&size=200&bold=true'">
-            <div>
-              <h4 style="color:#fff;font-size:16px;font-weight:600;margin:0;">${s.name}</h4>
-              <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0;">${s.role || "Speaker"}</p>
-            </div>
-          </div>
-        `;
-      });
-      speakersContainer.innerHTML = speakersHtml;
-    } else {
-      speakersSection.style.display = "none";
-      speakerSingle.style.display = "none";
+
+    // Set main image
+    const modalImage = document.getElementById("eventModalImage");
+    if (modalImage) {
+        modalImage.src = data.image || "https://picsum.photos/600/400?random=50";
+        modalImage.alt = data.title;
     }
-  }
-  
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+
+    // Set status badge
+    const badge = document.getElementById("eventModalBadge");
+    const statusColors = { upcoming: "#4285F4", past: "#888" };
+    const statusLabels = { upcoming: "Upcoming", past: "Finished" };
+    if (badge) {
+        badge.textContent = statusLabels[data.status] || "Upcoming";
+        badge.style.background = statusColors[data.status] || "#4285F4";
+    }
+
+    // Set venue type badge
+    const venueType = data.venue_type || "offline";
+    const venueIcons = { online: "fa-wifi", offline: "fa-map-marker-alt", hybrid: "fa-globe" };
+    const venueLabels = { online: "Online", offline: "In-Person", hybrid: "Hybrid" };
+
+    const venueIconEl = document.getElementById("eventModalVenueIcon");
+    const venueTypeEl = document.getElementById("eventModalVenueType");
+    const venueBadgeEl = document.getElementById("eventModalVenueBadge");
+
+    if (venueIconEl) venueIconEl.className = "fas " + (venueIcons[venueType] || "fa-map-marker-alt");
+    if (venueTypeEl) venueTypeEl.textContent = venueLabels[venueType] || "In-Person";
+    if (venueBadgeEl) venueBadgeEl.style.display = "flex";
+
+    // Set category
+    const categoryEl = document.getElementById("eventModalCategory");
+    if (categoryEl) categoryEl.textContent = data.category || "Event";
+
+    // Set title
+    const titleEl = document.getElementById("eventModalTitle");
+    if (titleEl) titleEl.textContent = data.title;
+
+    // Set description
+    const descEl = document.getElementById("eventModalDescription");
+    if (descEl) descEl.textContent = data.description || "No description available.";
+
+    // Set date
+    const dateEl = document.getElementById("eventModalDate");
+    if (dateEl) dateEl.textContent = data.date || "TBA";
+
+    // Set time
+    const timeEl = document.getElementById("eventModalTime");
+    if (timeEl) timeEl.textContent = data.time || "TBA";
+
+    // Set venue
+    let venueDisplay = data.venue || "TBA";
+    if (venueType === "online" && data.online_link) {
+        venueDisplay = "Online Event";
+    } else if (venueType === "hybrid") {
+        venueDisplay = data.venue ? data.venue + " + Online" : "Hybrid Event";
+    }
+    const venueEl = document.getElementById("eventModalVenue");
+    if (venueEl) venueEl.textContent = venueDisplay;
+
+    // Set slots
+    const slotsEl = document.getElementById("eventModalSlots");
+    if (slotsEl) slotsEl.textContent = data.slots || "Unlimited";
+
+    // Online Link
+    const onlineBox = document.getElementById("eventModalOnlineBox");
+    const onlineLink = document.getElementById("eventModalOnlineLink");
+    if (onlineBox && onlineLink) {
+        if (data.online_link && venueType !== "offline") {
+            onlineBox.style.display = "block";
+            onlineLink.innerHTML = `<a href="${data.online_link}" target="_blank" style="color:#4285F4;text-decoration:none;">${data.online_link}</a>`;
+        } else {
+            onlineBox.style.display = "none";
+        }
+    }
+
+    // Registration Link
+    const regBox = document.getElementById("eventModalRegBox");
+    const regLink = document.getElementById("eventModalRegLink");
+    const registerBtn = document.getElementById("eventRegisterBtn");
+    if (regBox && regLink && registerBtn) {
+        if (data.registration_link && data.status !== 'past') {
+            regBox.style.display = "block";
+            regLink.innerHTML = `<a href="${data.registration_link}" target="_blank" style="color:#4285F4;text-decoration:none;">Register Here</a>`;
+            registerBtn.href = data.registration_link;
+            registerBtn.style.display = "flex";
+        } else {
+            regBox.style.display = "none";
+            registerBtn.style.display = "none";
+        }
+    }
+
+    // ===== HOSTS / SPEAKERS =====
+    const hostsContainer = document.getElementById("eventHostsContainer");
+    const hostsSection = document.getElementById("eventHostsSection");
+    const speakerSingle = document.getElementById("eventSpeakerSingle");
+
+    const hosts = data.hosts || [];
+
+    if (hostsContainer && hostsSection && speakerSingle) {
+        if (hosts.length > 0) {
+            hostsSection.style.display = "block";
+            speakerSingle.style.display = "none";
+
+            let hostsHtml = "";
+            hosts.forEach((host) => {
+                const imgSrc = host.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(host.name)}&background=4285F4&color=fff&size=200&bold=true`;
+                hostsHtml += `
+                    <div class="event-host-item">
+                        <img src="${imgSrc}" alt="${host.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(host.name)}&background=4285F4&color=fff&size=200&bold=true'">
+                        <div class="host-info">
+                            <h5>${host.name}</h5>
+                            <p>${host.role || 'Speaker'}</p>
+                        </div>
+                        <a href="${host.portfolio || '#'}" target="_blank" class="host-link">
+                            <i class="fas fa-external-link-alt"></i> Portfolio
+                        </a>
+                    </div>
+                `;
+            });
+            hostsContainer.innerHTML = hostsHtml;
+        } else if (data.speaker) {
+            hostsSection.style.display = "none";
+            speakerSingle.style.display = "flex";
+            const speakerImg = document.getElementById("eventSpeakerImage");
+            const speakerName = document.getElementById("eventSpeakerName");
+            const speakerRole = document.getElementById("eventSpeakerRole");
+            if (speakerImg) speakerImg.src = data.speakerImg || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.speaker)}&background=4285F4&color=fff&size=200&bold=true`;
+            if (speakerName) speakerName.textContent = data.speaker;
+            if (speakerRole) speakerRole.textContent = data.speakerRole || "Guest Speaker";
+        } else {
+            hostsSection.style.display = "none";
+            speakerSingle.style.display = "none";
+        }
+    }
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
 }
+
+// ==========================================
+// CLOSE EVENT MODAL
+// ==========================================
 
 function closeEventModal() {
-  const modal = document.getElementById("eventModal");
-  if (modal) {
-    modal.classList.remove("active");
-    document.body.style.overflow = "";
-  }
+    const modal = document.getElementById("eventModal");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
 }
 
+// ==========================================
+// EVENT FILTERS
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function () {
-  const closeBtn = document.getElementById("eventModalClose");
-  const modal = document.getElementById("eventModal");
-  const overlay = document.querySelector(".event-modal-overlay");
-  
-  if (closeBtn) closeBtn.addEventListener("click", closeEventModal);
-  if (overlay) overlay.addEventListener("click", closeEventModal);
-  
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal?.classList.contains("active")) {
-      closeEventModal();
+    const filterBtns = document.querySelectorAll(".events-filter-btn");
+    
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            currentEventFilter = this.dataset.filter;
+            renderEvents(currentEventFilter);
+        });
+    });
+
+    // Initial render
+    renderEvents("all");
+
+    // Modal close events
+    const closeBtn = document.getElementById("eventModalClose");
+    const modal = document.getElementById("eventModal");
+    const overlay = document.querySelector(".event-modal-overlay");
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeEventModal);
     }
-  });
-  
-  document.getElementById("eventShareBtn")?.addEventListener("click", function () {
-    const title = document.getElementById("eventModalTitle")?.textContent || "GDG CTU Event";
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: "Check out this GDG CTU event!",
-        url: window.location.href
-      }).catch(() => {});
-    } else {
-      navigator.clipboard?.writeText(window.location.href).then(() => {
-        showNotification("Link copied to clipboard!", "success");
-      }).catch(() => {
-        alert("Share this event: " + window.location.href);
-      });
+    if (overlay) {
+        overlay.addEventListener("click", closeEventModal);
     }
-  });
-  
-  renderEvents();
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal?.classList.contains("active")) {
+            closeEventModal();
+        }
+    });
+
+    // Share button
+    const shareBtn = document.getElementById("eventShareBtn");
+    if (shareBtn) {
+        shareBtn.addEventListener("click", function () {
+            const title = document.getElementById("eventModalTitle")?.textContent || "GDG CTU Event";
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: "Check out this GDG CTU event!",
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard?.writeText(window.location.href).then(() => {
+                    showNotification("✅ Link copied to clipboard!", "success");
+                }).catch(() => {
+                    alert("Share this event: " + window.location.href);
+                });
+            }
+        });
+    }
 });
 
 // ==========================================
@@ -1404,73 +1746,94 @@ document.addEventListener("DOMContentLoaded", function () {
 // MERCH - STATIC DATA
 // ==========================================
 
-const staticMerch = [
-  {
-    name: "GDG T-Shirt",
-    description: "Premium quality cotton shirt with GDG logo.",
-    price: "₱500",
-    badge: "Limited",
-    orderLink: "#",
-    image: "https://picsum.photos/400/400?random=20"
-  },
-  {
-    name: "GDG Hoodie",
-    description: "Comfortable hoodie for the cold weather.",
-    price: "₱800",
-    badge: "New",
-    orderLink: "#",
-    image: "https://picsum.photos/400/400?random=21"
-  },
-  {
-    name: "GDG Sticker Pack",
-    description: "Collectible stickers for your laptop.",
-    price: "₱100",
-    badge: "",
-    orderLink: "#",
-    image: "https://picsum.photos/400/400?random=22"
-  }
+const merchItems = [
+    {
+        id: 1,
+        name: "GDG T-Shirt",
+        description: "Premium quality cotton shirt with GDG logo.",
+        price: "₱500",
+        oldPrice: "₱750",
+        discount: "-33%",
+        badge: "Limited",
+        image: "includes/images/merch/shirt.jpg",
+        orderLink: "#"
+    },
+    {
+        id: 2,
+        name: "GDG Hoodie",
+        description: "Comfortable hoodie for the cold weather.",
+        price: "₱800",
+        oldPrice: "₱1,200",
+        discount: "-33%",
+        badge: "New",
+        image: "includes/images/merch/hoodie.jpg",
+        orderLink: "#"
+    },
+    {
+        id: 3,
+        name: "GDG Sticker Pack",
+        description: "Collectible stickers for your laptop.",
+        price: "₱100",
+        oldPrice: "₱150",
+        discount: "-33%",
+        badge: "Sale",
+        image: "includes/images/merch/sticker.jpg",
+        orderLink: "#"
+    }
 ];
 
+// ==========================================
+// RENDER MERCH ITEMS
+// ==========================================
+
 function renderMerch() {
-  const grid = document.getElementById("merchGrid");
-  if (!grid) return;
-  
-  if (staticMerch.length === 0) {
-    grid.innerHTML = `
-      <div class="gallery-empty" style="grid-column:1/-1;">
-        <i class="fas fa-shopping-bag"></i>
-        <h3>No Merchandise Available</h3>
-        <p>Official merchandise will be available soon.</p>
-      </div>
-    `;
-    return;
-  }
-  
-  let html = "";
-  staticMerch.forEach((item) => {
-    html += `
-      <div class="merch-card">
-        <div class="merch-photo">
-          <img src="${item.image}" alt="${item.name}" onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(item.name)}&background=4285F4&color=fff&size=300&bold=true'">
-          ${item.badge ? `<span class="merch-badge">${item.badge}</span>` : ""}
-        </div>
-        <div class="merch-overlay">
-          <h3>${item.name}</h3>
-          <p>${item.description || ""}</p>
-          <span class="price">${item.price || "₱0"}</span>
-          <a href="${item.orderLink || "#"}" target="_blank" class="order-btn">
-            Order Now
-          </a>
-        </div>
-      </div>
-    `;
-  });
-  
-  grid.innerHTML = html;
+    const grid = document.getElementById("merchGrid");
+    if (!grid) return;
+
+    if (merchItems.length === 0) {
+        grid.innerHTML = `
+            <div class="gallery-empty" style="grid-column:1/-1;">
+                <i class="fas fa-shopping-bag"></i>
+                <h3>No Merchandise Available</h3>
+                <p>Official merchandise will be available soon.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = "";
+    merchItems.forEach((item) => {
+        html += `
+            <div class="merch-card">
+                <div class="merch-photo">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://picsum.photos/400/400?random=${item.id + 20}'">
+                    <span class="merch-badge">${item.badge}</span>
+                </div>
+                <div class="merch-hover-content">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <div class="merch-price-row">
+                        <span class="merch-price">${item.price}</span>
+                        <span class="merch-old-price">${item.oldPrice}</span>
+                        <span class="merch-discount">${item.discount}</span>
+                    </div>
+                    <a href="${item.orderLink}" target="_blank" class="order-btn">
+                        <i class="fas fa-shopping-bag"></i> Buy Now
+                    </a>
+                </div>
+            </div>
+        `;
+    });
+
+    grid.innerHTML = html;
 }
 
+// ==========================================
+// INITIALIZE MERCH
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function () {
-  renderMerch();
+    renderMerch();
 });
 
 // ==========================================
