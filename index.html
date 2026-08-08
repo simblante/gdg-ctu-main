@@ -57,7 +57,7 @@
                 <button class="icon-btn" id="themeToggle" title="Toggle Dark/Light Mode">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
                 </button>
-                <a href="#" class="join-btn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8XGfS83u5u3bbwqaUlHYmYlTNqPuYPl1aULCb8xMrN91jaQ/viewform?pli=1" class="join-btn">
                     <i class="fa-solid fa-user-plus"></i> <span>Join Us</span>
                 </a>
             </div>
@@ -279,12 +279,12 @@
 
                     <div class="officer-card" data-officer="tech-1">
                         <div class="officer-image-wrapper">
-                            <img src="includes/images/officers/tech-lead.jpg" alt="Tech Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <img src="includes/images/Chief-Technology-Officer.jpg" alt="Tech Lead" class="officer-photo" onerror="this.style.display='none'">
                             <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
                             <div class="officer-hover-info">
                                 <div class="hover-content">
-                                    <span class="hover-role">Tech Lead</span>
-                                    <h4>John Smith</h4>
+                                    <span class="hover-role">Chief-Technology-Officer</span>
+                                    <h4>James Niño Tan</h4>
                                     <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
                                     <div class="hover-socials">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -476,7 +476,7 @@
                     <span class="about-badge">About Us</span>
                     <h2>Building Developers.<br />Creating Impact.<span>Together.</span></h2>
                     <p>Google Developer Groups - Cebu Technological University - Main Campus is a student-led technology community that empowers aspiring developers through workshops, hackathons, collaborative projects, networking events, and hands-on learning experiences powered by Google technologies.</p>
-                    <a href="#mission" class="about-btn">Discover Our Story <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#our-story" class="about-btn">Discover Our Story <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="about-right">
                     <img src="includes/images/logo.png" alt="GDG Logo" />
@@ -571,48 +571,11 @@
                 </div>
             </div>
 
-            <div class="about-work">
-                <div class="about-work-left">
-                    <span class="section-label">WHAT WE DO</span>
-                    <h2>Empowering Students Through Technology</h2>
-                    <p>We organize workshops, hackathons, technical talks, study jams, collaborative projects, and networking opportunities that help students enhance their technical skills, connect with industry professionals, and become future technology leaders.</p>
-                    <a href="#events" class="about-btn">Explore Our Events <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="about-work-right">
-                    <img src="includes/images/us.webp" alt="GDG Community" />
-                </div>
-            </div>
 
-            <div class="about-stats">
-                <div class="stat-card">
-                    <div class="stat-icon blue"><i class="fa-solid fa-users"></i></div>
-                    <h3 id="statMembers">0</h3>
-                    <p>Active Members</p>
-                    <span>Growing our developer community.</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon red"><i class="fa-solid fa-calendar-days"></i></div>
-                    <h3 id="statEventsCount">0</h3>
-                    <p>Events & Workshops</p>
-                    <span>Hands-on learning experiences.</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon green"><i class="fa-solid fa-code"></i></div>
-                    <h3 id="statProjects">0</h3>
-                    <p>Projects Completed</p>
-                    <span>Building solutions with impact.</span>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon yellow"><i class="fa-solid fa-globe"></i></div>
-                    <h3>1</h3>
-                    <p>Unified Community</p>
-                    <span>One goal. One future.</span>
-                </div>
-            </div>
 
             <div class="team-story">
                 <div class="story-header">
-                    <span class="section-label">OUR STORY</span>
+                    <span class="section-label" id="our-story">OUR STORY</span>
                     <h2>Team Story: <span>GDG On Campus CTU</span></h2>
                     <p>From a small group of passionate students to one of the most active tech communities in the region.</p>
                 </div>
@@ -692,8 +655,8 @@
         </div>
     </section>
 
-    <!-- ==========================================
-            GALLERY - STATIC
+ <!-- ==========================================
+            GALLERY - WITH ALBUM FEATURE
     ========================================== -->
 
     <section id="gallery" class="gallery">
@@ -713,120 +676,39 @@
             </div>
 
             <div class="gallery-grid" id="galleryGrid">
-                <!-- GALLERY ITEMS - IKAW ANG MAGLALAGAY -->
-
-                <!-- ITEM 1 -->
-                <div class="gallery-card workshop" data-index="0">
-                    <div class="gallery-card-image">
-                        <img src="includes/images/gallery/workshop1.jpg" alt="Workshop" onerror="this.src='"https://picsum.photos/600/400?random=1'">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-card-content">
-                                <span class="gallery-card-category">Workshop</span>
-                                <h3>Google Cloud Workshop</h3>
-                                <p>Hands-on workshop on Google Cloud Platform for students.</p>
-                                <div class="gallery-card-meta">
-                                    <span><i class="fas fa-calendar-alt"></i> June 15, 2024</span>
-                                </div>
-                                <button class="gallery-card-btn" data-index="0">
-                                    <span>View Details</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-card-footer">
-                        <span class="card-title">Google Cloud Workshop</span>
-                        <span class="card-category">Workshop</span>
-                    </div>
-                </div>
-
-                <!-- ITEM 2 -->
-                <div class="gallery-card event" data-index="1">
-                    <div class="gallery-card-image">
-                        <img src="includes/images/gallery/event1.jpg" alt="Event" onerror="this.src=''">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-card-content">
-                                <span class="gallery-card-category">Event</span>
-                                <h3>TechConnect 2024</h3>
-                                <p>Our flagship event bringing together students and industry professionals.</p>
-                                <div class="gallery-card-meta">
-                                    <span><i class="fas fa-calendar-alt"></i> March 10, 2024</span>
-                                </div>
-                                <button class="gallery-card-btn" data-index="1">
-                                    <span>View Details</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-card-footer">
-                        <span class="card-title">TechConnect 2024</span>
-                        <span class="card-category">Event</span>
-                    </div>
-                </div>
-
-                <!-- ITEM 3 -->
-                <div class="gallery-card bootcamp" data-index="2">
-                    <div class="gallery-card-image">
-                        <img src="includes/images/gallery/bootcamp1.jpg" alt="Bootcamp" onerror="this.src=''">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-card-content">
-                                <span class="gallery-card-category">Bootcamp</span>
-                                <h3>Android Bootcamp</h3>
-                                <p>Intensive 3-day bootcamp on Android app development.</p>
-                                <div class="gallery-card-meta">
-                                    <span><i class="fas fa-calendar-alt"></i> August 20, 2024</span>
-                                </div>
-                                <button class="gallery-card-btn" data-index="2">
-                                    <span>View Details</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-card-footer">
-                        <span class="card-title">Android Bootcamp</span>
-                        <span class="card-category">Bootcamp</span>
-                    </div>
-                </div>
-
-                <!-- ITEM 4 -->
-                <div class="gallery-card community" data-index="3">
-                    <div class="gallery-card-image">
-                        <img src="includes/images/gallery/community1.jpg" alt="Community" onerror="this.src=''">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-card-content">
-                                <span class="gallery-card-category">Community</span>
-                                <h3>GDG Community Meetup</h3>
-                                <p>Monthly community meetup for developers and tech enthusiasts.</p>
-                                <div class="gallery-card-meta">
-                                    <span><i class="fas fa-calendar-alt"></i> September 5, 2024</span>
-                                </div>
-                                <button class="gallery-card-btn" data-index="3">
-                                    <span>View Details</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="gallery-card-footer">
-                        <span class="card-title">GDG Community Meetup</span>
-                        <span class="card-category">Community</span>
-                    </div>
-                </div>
+                <!-- GALLERY ALBUMS - Generated by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-            GALLERY MODAL
+            GALLERY MODAL - WITH SCROLLABLE INFO
     ========================================== -->
 
     <div class="gallery-modal" id="galleryModal">
         <div class="gallery-modal-overlay"></div>
         <div class="gallery-modal-container">
-            <button class="gallery-modal-close" id="galleryModalClose"><i class="fas fa-times"></i></button>
-            <div class="gallery-modal-content">
+            
+            <!-- Close Button -->
+            <button class="gallery-modal-close" id="galleryModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Slider Navigation -->
+            <button class="gallery-slider-btn prev" id="galleryPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-slider-btn next" id="galleryNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Image Counter -->
+            <div class="gallery-image-counter" id="galleryImageCounter">1 / 8</div>
+
+            <!-- ===== MAIN CONTENT - SCROLLABLE ===== -->
+            <div class="gallery-modal-scrollable">
+                
+                <!-- Image Section -->
                 <div class="gallery-modal-hero">
                     <img src="" alt="" id="galleryModalImage" />
                     <div class="gallery-modal-hero-overlay">
@@ -841,30 +723,71 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Thumbnails -->
+                <div class="gallery-thumbnails" id="galleryThumbnails">
+                    <!-- Thumbnails will be generated by JavaScript -->
+                </div>
+
+                <!-- ===== DETAILS SECTION - SCROLLABLE ===== -->
                 <div class="gallery-modal-details">
                     <div class="modal-detail-item">
-                        <div class="modal-detail-icon"><i class="fas fa-calendar-alt"></i></div>
-                        <div><span class="modal-detail-label">Date</span><p id="galleryModalDateDetail">Date</p></div>
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Date</span>
+                            <p id="galleryModalDateDetail">Date</p>
+                        </div>
                     </div>
+
                     <div class="modal-detail-item">
-                        <div class="modal-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div><span class="modal-detail-label">Venue</span><p id="galleryModalVenueDetail">Venue</p></div>
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Venue</span>
+                            <p id="galleryModalVenueDetail">Venue</p>
+                        </div>
                     </div>
+
                     <div class="modal-detail-item">
-                        <div class="modal-detail-icon"><i class="fas fa-tag"></i></div>
-                        <div><span class="modal-detail-label">Category</span><p id="galleryModalTypeDetail">Category</p></div>
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Category</span>
+                            <p id="galleryModalTypeDetail">Category</p>
+                        </div>
                     </div>
+
                     <div class="modal-detail-item full">
-                        <div class="modal-detail-icon"><i class="fas fa-info-circle"></i></div>
-                        <div><span class="modal-detail-label">Description</span><p id="galleryModalDescDetail">Description</p></div>
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Description</span>
+                            <p id="galleryModalDescDetail">Description</p>
+                        </div>
+                    </div>
+
+                    <!-- Photo Count -->
+                    <div class="modal-detail-item full">
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Total Photos</span>
+                            <p id="galleryModalPhotoCount">0 photos</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===========================
-            EVENTS - STATIC
+<!-- ===========================
+            EVENTS - STATIC WITH HOSTS
     =========================== -->
 
     <section id="events" class="section-events">
@@ -883,115 +806,21 @@
                 </div>
             </div>
 
+            <!-- Event Filters -->
+            <div class="events-filter">
+                <button class="events-filter-btn active" data-filter="all">All Events</button>
+                <button class="events-filter-btn" data-filter="upcoming">Upcoming</button>
+                <button class="events-filter-btn" data-filter="past">Finished</button>
+            </div>
+
             <div class="events-grid" id="eventsGrid">
-                <!-- EVENT CARDS - IKAW ANG MAGLALAGAY -->
-
-                <!-- EVENT 1 -->
-                <div class="event-card" data-status="upcoming" data-index="0">
-                    <div class="event-card-inner">
-                        <div class="event-banner">
-                            <img src="includes/images/events/event1.jpg" alt="Event" onerror="this.src=''">
-                            <span class="event-badge upcoming" style="background:#4285F4;">
-                                <i class="fas fa-calendar-alt"></i> Upcoming
-                            </span>
-                            <span class="event-venue-badge" style="position:absolute;bottom:14px;right:14px;padding:4px 12px;border-radius:50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);color:#fff;font-size:10px;font-weight:500;display:flex;align-items:center;gap:6px;z-index:2;">
-                                <i class="fas fa-map-marker-alt"></i> In-Person
-                            </span>
-                            <div class="event-hover-info">
-                                <div class="event-hover-content">
-                                    <span class="event-category"><i class="fas fa-code"></i> Workshop</span>
-                                    <h3>Google Cloud Workshop</h3>
-                                    <p>Learn the basics of Google Cloud Platform and build your first cloud application.</p>
-                                    <div class="event-meta">
-                                        <span><i class="fas fa-calendar-alt"></i> June 15, 2024</span>
-                                        <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
-                                        <span><i class="fas fa-map-marker-alt"></i> CTU Main Campus</span>
-                                        <span><i class="fas fa-users"></i> 50 slots</span>
-                                    </div>
-                                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                                        <a href="#" class="event-btn" style="text-decoration:none;">
-                                            Register Now
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EVENT 2 -->
-                <div class="event-card" data-status="ongoing" data-index="1">
-                    <div class="event-card-inner">
-                        <div class="event-banner">
-                            <img src="includes/images/events/event2.jpg" alt="Event" onerror="this.src=''">
-                            <span class="event-badge ongoing" style="background:#34A853;">
-                                <i class="fas fa-circle"></i> Ongoing
-                            </span>
-                            <span class="event-venue-badge" style="position:absolute;bottom:14px;right:14px;padding:4px 12px;border-radius:50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);color:#fff;font-size:10px;font-weight:500;display:flex;align-items:center;gap:6px;z-index:2;">
-                                <i class="fas fa-wifi"></i> Online
-                            </span>
-                            <div class="event-hover-info">
-                                <div class="event-hover-content">
-                                    <span class="event-category"><i class="fas fa-laptop-code"></i> Hackathon</span>
-                                    <h3>GDG Hackathon 2024</h3>
-                                    <p>24-hour hackathon to build innovative solutions for real-world problems.</p>
-                                    <div class="event-meta">
-                                        <span><i class="fas fa-calendar-alt"></i> June 20, 2024</span>
-                                        <span><i class="fas fa-clock"></i> 8:00 AM - 8:00 PM</span>
-                                        <span><i class="fas fa-wifi"></i> Online</span>
-                                        <span><i class="fas fa-users"></i> Unlimited</span>
-                                    </div>
-                                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                                        <a href="#" class="event-btn" style="text-decoration:none;background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);">
-                                            <i class="fas fa-video"></i> Join Online
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EVENT 3 -->
-                <div class="event-card" data-status="past" data-index="2">
-                    <div class="event-card-inner">
-                        <div class="event-banner">
-                            <img src="includes/images/events/event3.jpg" alt="Event" onerror="this.src=''">
-                            <span class="event-badge past" style="background:#888;">
-                                <i class="fas fa-check-circle"></i> Finished
-                            </span>
-                            <span class="event-venue-badge" style="position:absolute;bottom:14px;right:14px;padding:4px 12px;border-radius:50px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);color:#fff;font-size:10px;font-weight:500;display:flex;align-items:center;gap:6px;z-index:2;">
-                                <i class="fas fa-map-marker-alt"></i> In-Person
-                            </span>
-                            <div class="event-hover-info">
-                                <div class="event-hover-content">
-                                    <span class="event-category"><i class="fas fa-cloud"></i> Tech Talk</span>
-                                    <h3>Tech Talk: Future of AI</h3>
-                                    <p>Industry experts discuss the future of artificial intelligence and machine learning.</p>
-                                    <div class="event-meta">
-                                        <span><i class="fas fa-calendar-alt"></i> May 10, 2024</span>
-                                        <span><i class="fas fa-clock"></i> 2:00 PM - 5:00 PM</span>
-                                        <span><i class="fas fa-map-marker-alt"></i> CTU Auditorium</span>
-                                        <span><i class="fas fa-users"></i> 100 slots</span>
-                                    </div>
-                                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                                        <a href="#" class="event-btn" style="text-decoration:none;">
-                                            View Recap
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- EVENT CARDS - Generated by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- ==========================================
-            EVENT MODAL
+            EVENT MODAL - WITH HOSTS
     =========================================== -->
 
     <div class="event-modal" id="eventModal">
@@ -1021,10 +850,15 @@
                     <div class="event-info-box" id="eventModalOnlineBox" style="display:none;"><h3><i class="fas fa-link"></i> Online Link</h3><p id="eventModalOnlineLink">-</p></div>
                     <div class="event-info-box" id="eventModalRegBox" style="display:none;"><h3><i class="fas fa-ticket-alt"></i> Registration</h3><p id="eventModalRegLink">-</p></div>
                 </div>
-                <div class="event-speakers-section" id="eventSpeakersSection">
-                    <h4 style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;display:flex;align-items:center;gap:8px;"><i class="fas fa-users"></i> Speakers</h4>
-                    <div id="eventSpeakersContainer"></div>
+                
+                <!-- HOSTS / SPEAKERS SECTION -->
+                <div class="event-hosts-section" id="eventHostsSection">
+                    <h4><i class="fas fa-microphone"></i> Hosts & Speakers</h4>
+                    <div id="eventHostsContainer">
+                        <!-- Hosts will be generated by JavaScript -->
+                    </div>
                 </div>
+
                 <div class="event-speaker" id="eventSpeakerSingle" style="display:none;">
                     <img id="eventSpeakerImage" src="includes/images/speaker.jpg" alt="Speaker" onerror="this.src='https://ui-avatars.com/api/?name=Speaker&background=4285F4&color=fff&size=200&bold=true'" />
                     <div>
@@ -1107,8 +941,8 @@
         </div>
     </section>
 
-    <!--=========================================
-            MERCH - STATIC
+<!--=========================================
+            MERCH - PICTURE FIRST, HOVER REVEAL
     ==========================================-->
 
     <section id="merch" class="section-merch">
@@ -1123,7 +957,10 @@
                     <p>Discover premium GDGoC merchandise designed for developers, innovators, and future tech leaders.</p>
                     <div class="merch-mini-card">
                         <i class="fas fa-shirt"></i>
-                        <div><h4>Limited Collection</h4><p>Exclusive for GDGoC Members</p></div>
+                        <div>
+                            <h4>Limited Collection</h4>
+                            <p>Exclusive for GDGoC Members</p>
+                        </div>
                     </div>
                 </div>
                 <div class="merch-image">
@@ -1132,49 +969,12 @@
             </div>
 
             <div class="merch-grid" id="merchGrid">
-                <!-- MERCH ITEMS - IKAW ANG MAGLALAGAY -->
-
-                <div class="merch-card">
-                    <div class="merch-photo">
-                        <img src="includes/images/merch/shirt.jpg" alt="GDG Shirt" onerror="this.src=''">
-                        <span class="merch-badge">Limited</span>
-                    </div>
-                    <div class="merch-overlay">
-                        <h3>GDG T-Shirt</h3>
-                        <p>Premium quality cotton shirt with GDG logo.</p>
-                        <span class="price">₱500</span>
-                        <a href="#" target="_blank" class="order-btn">Order Now</a>
-                    </div>
-                </div>
-
-                <div class="merch-card">
-                    <div class="merch-photo">
-                        <img src="includes/images/merch/hoodie.jpg" alt="GDG Hoodie" onerror="this.src=''">
-                        <span class="merch-badge">New</span>
-                    </div>
-                    <div class="merch-overlay">
-                        <h3>GDG Hoodie</h3>
-                        <p>Comfortable hoodie for the cold weather.</p>
-                        <span class="price">₱800</span>
-                        <a href="#" target="_blank" class="order-btn">Order Now</a>
-                    </div>
-                </div>
-
-                <div class="merch-card">
-                    <div class="merch-photo">
-                        <img src="includes/images/merch/sticker.jpg" alt="GDG Sticker" onerror="this.src=''">
-                    </div>
-                    <div class="merch-overlay">
-                        <h3>GDG Sticker Pack</h3>
-                        <p>Collectible stickers for your laptop.</p>
-                        <span class="price">₱100</span>
-                        <a href="#" target="_blank" class="order-btn">Order Now</a>
-                    </div>
-                </div>
+                <!-- MERCH ITEMS - Generated by JavaScript -->
             </div>
         </div>
     </section>
 
+    
     <!-- ==========================================
             FAQ - STATIC
     ========================================== -->
@@ -1309,7 +1109,7 @@
                     </div>
                     <p class="footer-desc">Building the next generation of developers through technology, community, and innovation. Join us in exploring the latest in web development, mobile apps, cloud computing, and AI.</p>
                     <div class="footer-socials">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/gdsc.cebutech" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -1333,8 +1133,6 @@
                     <h4>Developer Resources</h4>
                     <ul>
                         <li><a href="https://developers.google.com/" target="_blank">Google for Developers</a></li>
-                        <li><a href="https://firebase.google.com/" target="_blank">Firebase</a></li>
-                        <li><a href="https://web.dev/" target="_blank">Web.dev</a></li>
                         <li><a href="https://cloud.google.com/" target="_blank">Google Cloud</a></li>
                     </ul>
                 </div>
@@ -1410,22 +1208,22 @@
     ========================================== -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            console.log("Auto-refresh active - watching for admin updates...");
+            console.log("🔄 Auto-refresh active - watching for admin updates...");
             let lastUpdate = localStorage.getItem("gdgDataUpdated") || "0";
             setInterval(function() {
                 const currentUpdate = localStorage.getItem("gdgDataUpdated") || "0";
                 if (currentUpdate !== lastUpdate) {
-                    console.log("Data update detected! Refreshing page...");
+                    console.log("🔄 Data update detected! Refreshing page...");
                     lastUpdate = currentUpdate;
                     location.reload();
                 }
             }, 3000);
             document.addEventListener("visibilitychange", function() {
                 if (!document.hidden) {
-                    console.log("Page visible, checking for updates...");
+                    console.log("🔄 Page visible, checking for updates...");
                     const current = localStorage.getItem("gdgDataUpdated") || "0";
                     if (current !== lastUpdate) {
-                        console.log("Update found, reloading...");
+                        console.log("🔄 Update found, reloading...");
                         lastUpdate = current;
                         location.reload();
                     }
