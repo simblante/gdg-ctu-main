@@ -1162,6 +1162,91 @@ footer{
     margin-right: 8px;
 }
 
+/*=========================================
+            THEME TOGGLE
+=========================================*/
+.theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 30;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(76, 99, 255, .15);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .75);
+    color: #4c63ff;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(44, 62, 120, .12);
+    transition: .3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px) rotate(15deg);
+    background: #4c63ff;
+    color: #fff;
+}
+
+[data-theme="dark"] body {
+    background: #0f0f1a;
+    color: #e8e8f0;
+}
+
+[data-theme="dark"] .login-wrapper {
+    background:
+        radial-gradient(circle at top left, #202050 0%, transparent 40%),
+        radial-gradient(circle at bottom right, #402c28 0%, transparent 30%),
+        #0f0f1a;
+}
+
+[data-theme="dark"] .login-card,
+[data-theme="dark"] .forgot-modal-container {
+    background: rgba(26, 26, 46, .94);
+    border-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .35);
+}
+
+[data-theme="dark"] .brand h1,
+[data-theme="dark"] .left-panel h2,
+[data-theme="dark"] .login-card h2,
+[data-theme="dark"] .login-card h3,
+[data-theme="dark"] .forgot-modal-container h3,
+[data-theme="dark"] .forgot-modal-container .form-group label {
+    color: #e8e8f0;
+}
+
+[data-theme="dark"] .brand p,
+[data-theme="dark"] .description,
+[data-theme="dark"] .login-card > p,
+[data-theme="dark"] .remember,
+[data-theme="dark"] .footer-text,
+[data-theme="dark"] footer,
+[data-theme="dark"] .forgot-modal-container p {
+    color: #9ca3af;
+}
+
+[data-theme="dark"] .input-box,
+[data-theme="dark"] .forgot-modal-container .form-group input {
+    background: #252540;
+    border-color: #3b3b5c;
+}
+
+[data-theme="dark"] .input-box input,
+[data-theme="dark"] .forgot-modal-container .form-group input {
+    color: #e8e8f0;
+}
+
+[data-theme="dark"] footer,
+[data-theme="dark"] .theme-toggle {
+    background: rgba(26, 26, 46, .85);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+[data-theme="dark"] .forgot-modal-container .modal-close {
+    background: #252540;
+    color: #9ca3af;
+}
+
 /* =====================================
    FORGOT PASSWORD MODAL
 ===================================== */
@@ -1364,6 +1449,10 @@ footer{
 </head>
 
 <body>
+
+<button class="theme-toggle" id="themeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
+    <i class="fa-solid fa-moon" id="themeIcon"></i>
+</button>
 
 <div class="login-wrapper">
 
@@ -1600,6 +1689,23 @@ Cebu Technological University
 // ==========================================
 // GDGoC CTU LOGIN - WITH DATABASE CONNECTION
 // ==========================================
+
+const savedTheme = localStorage.getItem('gdgTheme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    themeToggle.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+}
+updateThemeIcon(savedTheme);
+themeToggle.addEventListener('click', function() {
+    const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('gdgTheme', nextTheme);
+    updateThemeIcon(nextTheme);
+});
 
 // Use relative path from admin folder
 const API_BASE = '../api/';

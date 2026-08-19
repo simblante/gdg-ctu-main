@@ -2005,6 +2005,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   function updateIcon(theme) {
+    if (!themeIcon) return;
+
     if (theme === "dark") {
       themeIcon.className = "fa-solid fa-sun";
       themeToggle.title = "Switch to Light Mode";

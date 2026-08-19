@@ -12280,3 +12280,89 @@ header {
 [data-theme="dark"] .event-host-item .host-link:hover {
     background: rgba(66, 133, 244, 0.25);
 }
+
+/* =====================================
+   DARK MODE - GLOBAL OVERRIDES
+   Keep all sections readable when their
+   component styles use fixed light colors.
+===================================== */
+
+[data-theme="dark"] body,
+[data-theme="dark"] .hero,
+[data-theme="dark"] .section-officers,
+[data-theme="dark"] .about,
+[data-theme="dark"] .gallery,
+[data-theme="dark"] .section-faq {
+  background: var(--bg-body);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .icon-btn,
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .year-btn,
+[data-theme="dark"] .filter-btn,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .gallery-card,
+[data-theme="dark"] .officer-card,
+[data-theme="dark"] .purpose-card,
+[data-theme="dark"] .timeline-content,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .contact-item,
+[data-theme="dark"] .partner-card,
+[data-theme="dark"] .merch-card {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] .hero-left h1,
+[data-theme="dark"] .section-header h2,
+[data-theme="dark"] .department-header h3,
+[data-theme="dark"] .about-left h2,
+[data-theme="dark"] .purpose-card h3,
+[data-theme="dark"] .timeline-content h3,
+[data-theme="dark"] .faq-question h3,
+[data-theme="dark"] .card-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] .hero-left p,
+[data-theme="dark"] .section-header p,
+[data-theme="dark"] .about-left p,
+[data-theme="dark"] .header-subtitle,
+[data-theme="dark"] .purpose-card p,
+[data-theme="dark"] .timeline-content p,
+[data-theme="dark"] .faq-answer p,
+[data-theme="dark"] .card-category {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .officers-motto,
+[data-theme="dark"] .modal-socials {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #171727;
+}
