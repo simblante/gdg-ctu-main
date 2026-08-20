@@ -1,5 +1,5 @@
 {
-  "id": "e7a12fa3-5f05-43ed-9430-eca4eca14399",
+  "id": "9b28dc76-e52d-444b-87fe-8c5715c6d05d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -81,15 +81,28 @@
       "name": "event_speakers",
       "schema": "",
       "columns": {
-        "event_id": {
-          "name": "event_id",
+        "id": {
+          "name": "id",
           "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "varchar(100)",
           "primaryKey": false,
           "notNull": true
         },
-        "team_member_id": {
-          "name": "team_member_id",
-          "type": "uuid",
+        "last_name": {
+          "name": "last_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "slug": {
+          "name": "slug",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
@@ -99,22 +112,65 @@
           "primaryKey": false,
           "notNull": false
         },
-        "display_order": {
-          "name": "display_order",
-          "type": "integer",
+        "bio": {
+          "name": "bio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "profile_media_id": {
+          "name": "profile_media_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linkedin_url": {
+          "name": "linkedin_url",
+          "type": "varchar(2048)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "github_url": {
+          "name": "github_url",
+          "type": "varchar(2048)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "website_url": {
+          "name": "website_url",
+          "type": "varchar(2048)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "team_member_id": {
+          "name": "team_member_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
-          "default": 0
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
       "foreignKeys": {
-        "event_speakers_event_id_events_id_fk": {
-          "name": "event_speakers_event_id_events_id_fk",
+        "event_speakers_profile_media_id_media_id_fk": {
+          "name": "event_speakers_profile_media_id_media_id_fk",
           "tableFrom": "event_speakers",
-          "tableTo": "events",
+          "tableTo": "media",
           "columnsFrom": [
-            "event_id"
+            "profile_media_id"
           ],
           "columnsTo": [
             "id"
@@ -136,16 +192,16 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {
-        "event_speakers_event_id_team_member_id_pk": {
-          "name": "event_speakers_event_id_team_member_id_pk",
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "event_speakers_slug_unique": {
+          "name": "event_speakers_slug_unique",
+          "nullsNotDistinct": false,
           "columns": [
-            "event_id",
-            "team_member_id"
+            "slug"
           ]
         }
       },
-      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

@@ -22,7 +22,7 @@ const eventDateRule = <
 
 export const EventSchema = createSelectSchema(events);
 
-export const CreateEventSchema = createInsertSchema(events)
+const BaseCreateEventSchema = createInsertSchema(events)
       .omit({
             id: true,
             createdAt: true,
@@ -41,10 +41,12 @@ export const CreateEventSchema = createInsertSchema(events)
             endAt: z.coerce.date(),
             status: z.enum(EVENT_STATUSES).default("draft"),
             createdBy: z.string().uuid(),
-      })
-      .superRefine(eventDateRule);
+      });
 
-export const UpdateEventSchema = CreateEventSchema.partial()
+export const CreateEventSchema =
+      BaseCreateEventSchema.superRefine(eventDateRule);
+
+export const UpdateEventSchema = BaseCreateEventSchema.partial()
       .refine(
             (data) => Object.keys(data).length > 0,
             "At least one field is required",

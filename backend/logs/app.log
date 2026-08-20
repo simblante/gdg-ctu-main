@@ -3,3 +3,65 @@
 {"level":"info","message":"App running in Development mode"}
 {"level":"info","message":"Server Connected to Database Successfully"}
 {"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"error":"Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com","level":"error","message":"Failed to create admin","stack":"Error: Failed query: select \"id\", \"email\", \"password_hash\", \"first_name\", \"last_name\", \"is_active\", \"created_at\", \"updated_at\" from \"admins\" where \"admins\".\"email\" = $1\nparams: admin@example.com\n    at NodePgPreparedQuery.queryWithCache (/home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async /home/drie/Documents/Projects/gdg-ctu-main/backend/node_modules/src/node-postgres/session.ts:154:19\n    at async getAdminByEmail (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/models/admin.queries.ts:35:23)\n    at async createAdminService (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.services.ts:25:29)\n    at async createAdmin (/home/drie/Documents/Projects/gdg-ctu-main/backend/src/modules/admins/admin.controllers.ts:20:27)"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}
+{"level":"info","message":"CORS: http://localhost:8000 Running in Development Mode"}
+{"level":"info","message":"App running in Development mode"}
+{"level":"info","message":"Server Connected to Database Successfully"}
+{"level":"info","message":"Server is running on port 3000"}

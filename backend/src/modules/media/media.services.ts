@@ -82,7 +82,7 @@ export const deleteMediaService = async (id: string) => {
       if (await mediaHasReferences(id)) {
             throw new AppError(
                   409,
-                  "Media cannot be deleted while referenced by team members, events, or site content",
+                  "Media cannot be deleted while referenced by team members, event speakers, events, or site content",
             );
       }
 

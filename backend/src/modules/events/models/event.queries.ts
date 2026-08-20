@@ -1,8 +1,6 @@
-import { asc, count, desc, eq } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import { db } from "../../../config/connectDB";
 import { Pagination } from "../../../utils/pagination";
-import { eventSpeakers } from "../../event-speakers/models/event-speaker";
-import { teamMembers } from "../../team-members/models/team-member";
 import { events } from "./event";
 
 export type EventRecord = typeof events.$inferSelect;
@@ -39,37 +37,6 @@ export const getEventBySlug = async (slug: string) => {
       return event;
 };
 
-export const getEventByIdWithSpeakers = async (id: string) => {
-      const rows = await db
-            .select({
-                  event: events,
-                  eventSpeaker: eventSpeakers,
-                  teamMember: teamMembers,
-            })
-            .from(events)
-            .leftJoin(eventSpeakers, eq(eventSpeakers.eventId, events.id))
-            .leftJoin(
-                  teamMembers,
-                  eq(teamMembers.id, eventSpeakers.teamMemberId),
-            )
-            .where(eq(events.id, id))
-            .orderBy(asc(eventSpeakers.displayOrder));
-
-      if (rows.length === 0) {
-            return undefined;
-      }
-
-      return {
-            ...rows[0].event,
-            speakers: rows
-                  .filter((row) => row.eventSpeaker && row.teamMember)
-                  .map((row) => ({
-                        ...row.eventSpeaker!,
-                        teamMember: row.teamMember!,
-                  })),
-      };
-};
-
 export const updateEvent = async (
       id: string,
       data: Partial<NewEventRecord>,
@@ -88,14 +55,4 @@ export const deleteEvent = async (id: string) => {
             .where(eq(events.id, id))
             .returning();
       return event;
-};
-
-export const eventHasSpeakerReferences = async (id: string) => {
-      const [speaker] = await db
-            .select({ teamMemberId: eventSpeakers.teamMemberId })
-            .from(eventSpeakers)
-            .where(eq(eventSpeakers.eventId, id))
-            .limit(1);
-
-      return Boolean(speaker);
 };

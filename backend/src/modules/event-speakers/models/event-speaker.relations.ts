@@ -1,15 +1,15 @@
 import { relations } from "drizzle-orm";
-import { events } from "../../events/models/event";
+import { media } from "../../media/models/media";
 import { teamMembers } from "../../team-members/models/team-member";
 import { eventSpeakers } from "./event-speaker";
 
 export const eventSpeakersRelations = relations(eventSpeakers, ({ one }) => ({
-      event: one(events, {
-            fields: [eventSpeakers.eventId],
-            references: [events.id],
-      }),
       teamMember: one(teamMembers, {
             fields: [eventSpeakers.teamMemberId],
             references: [teamMembers.id],
+      }),
+      profileMedia: one(media, {
+            fields: [eventSpeakers.profileMediaId],
+            references: [media.id],
       }),
 }));

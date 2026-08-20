@@ -66,7 +66,7 @@ export const deleteTeamMember = async (id: string) => {
 
 export const teamMemberHasEventSpeakerReferences = async (id: string) => {
       const [speaker] = await db
-            .select({ eventId: eventSpeakers.eventId })
+            .select({ id: eventSpeakers.id })
             .from(eventSpeakers)
             .where(eq(eventSpeakers.teamMemberId, id))
             .limit(1);

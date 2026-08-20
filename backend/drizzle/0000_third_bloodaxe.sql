@@ -11,11 +11,20 @@ CREATE TABLE "admins" (
 );
 --> statement-breakpoint
 CREATE TABLE "event_speakers" (
-	"event_id" uuid NOT NULL,
-	"team_member_id" uuid NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"first_name" varchar(100) NOT NULL,
+	"last_name" varchar(100) NOT NULL,
+	"slug" varchar(255) NOT NULL,
 	"role" varchar(255),
-	"display_order" integer DEFAULT 0 NOT NULL,
-	CONSTRAINT "event_speakers_event_id_team_member_id_pk" PRIMARY KEY("event_id","team_member_id")
+	"bio" text,
+	"profile_media_id" uuid,
+	"linkedin_url" varchar(2048),
+	"github_url" varchar(2048),
+	"website_url" varchar(2048),
+	"team_member_id" uuid,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL,
+	CONSTRAINT "event_speakers_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
 CREATE TABLE "events" (
@@ -83,7 +92,7 @@ CREATE TABLE "team_members" (
 	CONSTRAINT "team_members_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
-ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_event_id_events_id_fk" FOREIGN KEY ("event_id") REFERENCES "public"."events"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_profile_media_id_media_id_fk" FOREIGN KEY ("profile_media_id") REFERENCES "public"."media"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_team_member_id_team_members_id_fk" FOREIGN KEY ("team_member_id") REFERENCES "public"."team_members"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "events" ADD CONSTRAINT "events_cover_media_id_media_id_fk" FOREIGN KEY ("cover_media_id") REFERENCES "public"."media"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "events" ADD CONSTRAINT "events_created_by_admins_id_fk" FOREIGN KEY ("created_by") REFERENCES "public"."admins"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint

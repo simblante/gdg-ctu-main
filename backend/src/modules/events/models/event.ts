@@ -3,7 +3,12 @@ import { pgTable } from "drizzle-orm/pg-core";
 import { admins } from "../../admins/models/admin";
 import { media } from "../../media/models/media";
 
-export const EVENT_STATUSES = ["draft", "published", "archived"] as const;
+export const EVENT_STATUSES = [
+      "draft",
+      "published",
+      "archived",
+      "cancelled",
+] as const;
 
 export const events = pgTable("events", {
       id: uuid("id").defaultRandom().primaryKey(),

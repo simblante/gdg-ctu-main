@@ -6,9 +6,7 @@ import { EventStatus } from "./models/event";
 import {
       countEvents,
       deleteEvent,
-      eventHasSpeakerReferences,
       getEventById,
-      getEventByIdWithSpeakers,
       getEventBySlug,
       getEvents,
       insertEvent,
@@ -76,7 +74,7 @@ export const getEventsService = async (pagination: Pagination) => {
 };
 
 export const getEventByIdService = async (id: string) => {
-      const event = await getEventByIdWithSpeakers(id);
+      const event = await getEventById(id);
 
       if (!event) {
             throw new AppError(404, "Event not found");
@@ -154,13 +152,6 @@ export const deleteEventService = async (id: string) => {
 
       if (!event) {
             throw new AppError(404, "Event not found");
-      }
-
-      if (await eventHasSpeakerReferences(id)) {
-            throw new AppError(
-                  409,
-                  "Event cannot be deleted while speakers are assigned",
-            );
       }
 
       await deleteEvent(id);
