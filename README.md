@@ -3,13 +3,13 @@ Regards Ryan Andrie Coretico very handsome
 test comm
 
 BACKEND config:
-cd backend
-npm install
-npm run dev
+- cd backend
+- npm install
+- npm run dev
 
 For database:
-npm run db:generate //generates/writes postgreSql migration file
-npm run db:migrate //migrate the generated postgre files
+- npm run db:generate //generates/writes postgreSql migration file
+- npm run db:migrate //migrate the generated postgre files
 
 ENV:
 - Found in the example env file, the following empty variables are the environment variables being used in the backend.
