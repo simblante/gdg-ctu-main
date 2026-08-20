@@ -8,7 +8,8 @@ BACKEND config:
 - npm install
 - npm run dev
 
-For database:
+DATABASE:
+- Uses drizzle orm: https://orm.drizzle.team/
 - npm run db:generate //generates/writes postgreSql migration file
 - npm run db:migrate //migrate the generated postgre files
 
