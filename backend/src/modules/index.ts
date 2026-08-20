@@ -13,6 +13,6 @@ router.use("/team-members", teamMemberRoutes);
 router.use("/events", eventRoutes);
 router.use("/media", mediaRoutes);
 router.use("/site-content", siteContentRoutes);
-router.use(eventSpeakerRoutes);
+router.use("/event-speakers", eventSpeakerRoutes);
 
 export default router;

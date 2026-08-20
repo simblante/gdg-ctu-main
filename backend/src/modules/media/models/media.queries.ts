@@ -1,6 +1,7 @@
 import { count, eq } from "drizzle-orm";
 import { db } from "../../../config/connectDB";
 import { Pagination } from "../../../utils/pagination";
+import { eventSpeakers } from "../../event-speakers/models/event-speaker";
 import { events } from "../../events/models/event";
 import { siteContent } from "../../site-content/models/site-content";
 import { teamMembers } from "../../team-members/models/team-member";
@@ -72,11 +73,17 @@ export const mediaHasReferences = async (id: string) => {
             .where(eq(events.coverMediaId, id))
             .limit(1);
 
+      const [eventSpeaker] = await db
+            .select({ id: eventSpeakers.id })
+            .from(eventSpeakers)
+            .where(eq(eventSpeakers.profileMediaId, id))
+            .limit(1);
+
       const [content] = await db
             .select({ id: siteContent.id })
             .from(siteContent)
             .where(eq(siteContent.mediaId, id))
             .limit(1);
 
-      return Boolean(teamMember || event || content);
+      return Boolean(teamMember || event || eventSpeaker || content);
 };

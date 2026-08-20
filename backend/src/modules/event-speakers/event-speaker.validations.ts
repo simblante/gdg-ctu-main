@@ -6,22 +6,27 @@ export const EventSpeakerSchema = createSelectSchema(eventSpeakers);
 
 export const CreateEventSpeakerSchema = createInsertSchema(eventSpeakers)
       .omit({
-            eventId: true,
+            id: true,
+            createdAt: true,
+            updatedAt: true,
       })
       .extend({
-            teamMemberId: z.string().uuid(),
+            firstName: z.string().trim().min(1),
+            lastName: z.string().trim().min(1),
+            slug: z.string().trim().min(1),
             role: z.string().trim().nullable().optional(),
-            displayOrder: z.number().int().optional(),
+            bio: z.string().nullable().optional(),
+            profileMediaId: z.string().uuid().nullable().optional(),
+            linkedinUrl: z.string().url().nullable().optional(),
+            githubUrl: z.string().url().nullable().optional(),
+            websiteUrl: z.string().url().nullable().optional(),
+            teamMemberId: z.string().uuid().nullable().optional(),
       });
 
-export const UpdateEventSpeakerSchema = CreateEventSpeakerSchema.omit({
-      teamMemberId: true,
-})
-      .partial()
-      .refine(
-            (data) => Object.keys(data).length > 0,
-            "At least one field is required",
-      );
+export const UpdateEventSpeakerSchema = CreateEventSpeakerSchema.partial().refine(
+      (data) => Object.keys(data).length > 0,
+      "At least one field is required",
+);
 
 export type EventSpeaker = z.infer<typeof EventSpeakerSchema>;
 export type CreateEventSpeakerDTO = z.infer<typeof CreateEventSpeakerSchema>;

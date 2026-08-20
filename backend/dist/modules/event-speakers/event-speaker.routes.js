@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const event_speaker_controllers_1 = require("./event-speaker.controllers");
+const router = (0, express_1.Router)();
+router.post("/event-speakers", event_speaker_controllers_1.createEventSpeaker);
+router.get("/event-speakers", event_speaker_controllers_1.listEventSpeakers);
+router.get("/event-speakers/slug/:slug", event_speaker_controllers_1.getEventSpeakerBySlug);
+router.get("/event-speakers/:id", event_speaker_controllers_1.getEventSpeaker);
+router.patch("/event-speakers/:id", event_speaker_controllers_1.updateEventSpeaker);
+router.delete("/event-speakers/:id", event_speaker_controllers_1.removeEventSpeaker);
+router.get("/team-members/:teamMemberId/event-speakers", event_speaker_controllers_1.listEventSpeakersForTeamMember);
+exports.default = router;

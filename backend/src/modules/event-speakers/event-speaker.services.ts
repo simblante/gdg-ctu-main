@@ -1,14 +1,15 @@
 import { AppError } from "../../utils/http";
 import { getPaginationMeta, Pagination } from "../../utils/pagination";
-import { getEventById } from "../events/models/event.queries";
+import { getMediaById } from "../media/models/media.queries";
 import { getTeamMemberById } from "../team-members/models/team-member.queries";
 import {
-      countEventsByTeamMemberId,
-      countSpeakersByEventId,
+      countEventSpeakers,
+      countEventSpeakersByTeamMemberId,
       deleteEventSpeaker,
-      getEventsByTeamMemberId,
-      getEventSpeaker,
-      getSpeakersByEventId,
+      getEventSpeakerById,
+      getEventSpeakerBySlug,
+      getEventSpeakers,
+      getEventSpeakersByTeamMemberId,
       insertEventSpeaker,
       updateEventSpeaker,
 } from "./models/event-speaker.queries";
@@ -17,51 +18,71 @@ import {
       UpdateEventSpeakerDTO,
 } from "./event-speaker.validations";
 
-export const addEventSpeakerService = async (
-      eventId: string,
-      data: CreateEventSpeakerDTO,
+const validateEventSpeakerReferences = async (
+      data: Partial<
+            Pick<CreateEventSpeakerDTO, "profileMediaId" | "teamMemberId">
+      >,
 ) => {
-      if (!(await getEventById(eventId))) {
-            throw new AppError(404, "Event not found");
-      }
-
-      if (!(await getTeamMemberById(data.teamMemberId))) {
-            throw new AppError(404, "Team member not found");
-      }
-
-      if (await getEventSpeaker(eventId, data.teamMemberId)) {
+      if (data.profileMediaId && !(await getMediaById(data.profileMediaId))) {
             throw new AppError(
-                  409,
-                  "Team member is already assigned to this event",
+                  400,
+                  "profileMediaId must reference existing media",
             );
       }
 
-      return insertEventSpeaker({
-            ...data,
-            eventId,
-      });
+      if (data.teamMemberId && !(await getTeamMemberById(data.teamMemberId))) {
+            throw new AppError(
+                  400,
+                  "teamMemberId must reference an existing team member",
+            );
+      }
 };
 
-export const getSpeakersByEventIdService = async (
-      eventId: string,
-      pagination: Pagination,
+export const createEventSpeakerService = async (
+      data: CreateEventSpeakerDTO,
 ) => {
-      if (!(await getEventById(eventId))) {
-            throw new AppError(404, "Event not found");
+      if (await getEventSpeakerBySlug(data.slug)) {
+            throw new AppError(409, "Event speaker slug already exists");
       }
 
-      const [speakers, total] = await Promise.all([
-            getSpeakersByEventId(eventId, pagination),
-            countSpeakersByEventId(eventId),
+      await validateEventSpeakerReferences(data);
+
+      return insertEventSpeaker(data);
+};
+
+export const getEventSpeakersService = async (pagination: Pagination) => {
+      const [eventSpeakers, total] = await Promise.all([
+            getEventSpeakers(pagination),
+            countEventSpeakers(),
       ]);
 
       return {
-            speakers,
+            eventSpeakers,
             pagination: getPaginationMeta(pagination, total),
       };
 };
 
-export const getEventsByTeamMemberIdService = async (
+export const getEventSpeakerByIdService = async (id: string) => {
+      const eventSpeaker = await getEventSpeakerById(id);
+
+      if (!eventSpeaker) {
+            throw new AppError(404, "Event speaker not found");
+      }
+
+      return eventSpeaker;
+};
+
+export const getEventSpeakerBySlugService = async (slug: string) => {
+      const eventSpeaker = await getEventSpeakerBySlug(slug);
+
+      if (!eventSpeaker) {
+            throw new AppError(404, "Event speaker not found");
+      }
+
+      return eventSpeaker;
+};
+
+export const getEventSpeakersByTeamMemberIdService = async (
       teamMemberId: string,
       pagination: Pagination,
 ) => {
@@ -69,36 +90,49 @@ export const getEventsByTeamMemberIdService = async (
             throw new AppError(404, "Team member not found");
       }
 
-      const [events, total] = await Promise.all([
-            getEventsByTeamMemberId(teamMemberId, pagination),
-            countEventsByTeamMemberId(teamMemberId),
+      const [eventSpeakers, total] = await Promise.all([
+            getEventSpeakersByTeamMemberId(teamMemberId, pagination),
+            countEventSpeakersByTeamMemberId(teamMemberId),
       ]);
 
       return {
-            events,
+            eventSpeakers,
             pagination: getPaginationMeta(pagination, total),
       };
 };
 
 export const updateEventSpeakerService = async (
-      eventId: string,
-      teamMemberId: string,
+      id: string,
       data: UpdateEventSpeakerDTO,
 ) => {
-      if (!(await getEventSpeaker(eventId, teamMemberId))) {
+      const eventSpeaker = await getEventSpeakerById(id);
+
+      if (!eventSpeaker) {
             throw new AppError(404, "Event speaker not found");
       }
 
-      return updateEventSpeaker(eventId, teamMemberId, data);
+      if (data.slug && data.slug !== eventSpeaker.slug) {
+            const existingEventSpeaker = await getEventSpeakerBySlug(data.slug);
+
+            if (existingEventSpeaker) {
+                  throw new AppError(409, "Event speaker slug already exists");
+            }
+      }
+
+      await validateEventSpeakerReferences(data);
+
+      return updateEventSpeaker(id, {
+            ...data,
+            updatedAt: new Date(),
+      });
 };
 
-export const removeEventSpeakerService = async (
-      eventId: string,
-      teamMemberId: string,
-) => {
-      if (!(await getEventSpeaker(eventId, teamMemberId))) {
+export const deleteEventSpeakerService = async (id: string) => {
+      const eventSpeaker = await getEventSpeakerById(id);
+
+      if (!eventSpeaker) {
             throw new AppError(404, "Event speaker not found");
       }
 
-      await deleteEventSpeaker(eventId, teamMemberId);
+      await deleteEventSpeaker(id);
 };

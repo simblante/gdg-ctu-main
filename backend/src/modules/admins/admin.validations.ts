@@ -15,7 +15,7 @@ export const CreateAdminSchema = createInsertSchema(admins)
             updatedAt: true,
       })
       .extend({
-            email: z.string().email().trim().toLowerCase(),
+            email: z.email().trim().toLowerCase(),
             passwordHash: z.string().min(20),
             firstName: z.string().trim().min(1),
             lastName: z.string().trim().min(1),

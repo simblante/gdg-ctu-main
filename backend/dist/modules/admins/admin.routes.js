@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const admin_controllers_1 = require("./admin.controllers");
+const validateParams_1 = require("../../middleware/validateParams");
+const validateQuery_1 = require("../../middleware/validateQuery");
+const router = (0, express_1.Router)();
+router.post("/", admin_controllers_1.createAdmin);
+router.get("/", (0, validateQuery_1.validateQuery)("page", "limit"), admin_controllers_1.listAdmins);
+router.get("/:id", (0, validateParams_1.validateParams)("id"), admin_controllers_1.getAdmin);
+router.patch("/:id", (0, validateParams_1.validateParams)("id"), admin_controllers_1.updateAdmin);
+router.delete("/:id", (0, validateParams_1.validateParams)("id"), admin_controllers_1.removeAdmin);
+exports.default = router;

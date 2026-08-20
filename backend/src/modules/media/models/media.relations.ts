@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
 import { admins } from "../../admins/models/admin";
+import { eventSpeakers } from "../../event-speakers/models/event-speaker";
 import { events } from "../../events/models/event";
 import { siteContent } from "../../site-content/models/site-content";
 import { teamMembers } from "../../team-members/models/team-member";
@@ -11,6 +12,7 @@ export const mediaRelations = relations(media, ({ one, many }) => ({
             references: [admins.id],
       }),
       teamMembers: many(teamMembers),
+      eventSpeakers: many(eventSpeakers),
       events: many(events),
       siteContent: many(siteContent),
 }));

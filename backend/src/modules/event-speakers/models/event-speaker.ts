@@ -1,19 +1,22 @@
-import { integer, primaryKey, uuid, varchar } from "drizzle-orm/pg-core";
+import { text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { pgTable } from "drizzle-orm/pg-core";
-import { events } from "../../events/models/event";
+import { media } from "../../media/models/media";
 import { teamMembers } from "../../team-members/models/team-member";
+import { events } from "../../events/models/event";
 
-export const eventSpeakers = pgTable(
-      "event_speakers",
-      {
-            eventId: uuid("event_id")
-                  .notNull()
-                  .references(() => events.id),
-            teamMemberId: uuid("team_member_id")
-                  .notNull()
-                  .references(() => teamMembers.id),
-            role: varchar("role", { length: 255 }),
-            displayOrder: integer("display_order").default(0).notNull(),
-      },
-      (table) => [primaryKey({ columns: [table.eventId, table.teamMemberId] })],
-);
+export const eventSpeakers = pgTable("event_speakers", {
+      eventId: uuid("event_id").references(() => events.id),
+      id: uuid("id").defaultRandom().primaryKey(),
+      firstName: varchar("first_name", { length: 100 }).notNull(),
+      lastName: varchar("last_name", { length: 100 }).notNull(),
+      slug: varchar("slug", { length: 255 }).notNull().unique(),
+      role: varchar("role", { length: 255 }),
+      bio: text("bio"),
+      profileMediaId: uuid("profile_media_id").references(() => media.id),
+      linkedinUrl: varchar("linkedin_url", { length: 2048 }),
+      githubUrl: varchar("github_url", { length: 2048 }),
+      websiteUrl: varchar("website_url", { length: 2048 }),
+      teamMemberId: uuid("team_member_id").references(() => teamMembers.id),
+      createdAt: timestamp("created_at").defaultNow().notNull(),
+      updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
