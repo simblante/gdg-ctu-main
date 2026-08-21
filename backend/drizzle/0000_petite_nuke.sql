@@ -10,7 +10,32 @@ CREATE TABLE "admins" (
 	CONSTRAINT "admins_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
+CREATE TABLE "event_attendees" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"event_id" uuid NOT NULL,
+	"first_name" varchar(100) NOT NULL,
+	"last_name" varchar(100) NOT NULL,
+	"email" varchar(255) NOT NULL,
+	"phone" varchar(50),
+	"organization" varchar(255),
+	"job_title" varchar(255),
+	"registration_status" varchar(100) NOT NULL,
+	"registered_at" timestamp DEFAULT now() NOT NULL,
+	"attended_at" timestamp,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "event_hosts" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"event_id" uuid NOT NULL,
+	"team_member_id" uuid NOT NULL,
+	"host_role" varchar(255) NOT NULL,
+	"display_order" integer DEFAULT 0 NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "event_speakers" (
+	"event_id" uuid,
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"first_name" varchar(100) NOT NULL,
 	"last_name" varchar(100) NOT NULL,
@@ -35,7 +60,8 @@ CREATE TABLE "events" (
 	"description" text,
 	"cover_media_id" uuid,
 	"location" varchar(255),
-	"registration_url" varchar(2048),
+	"location_embed_url" varchar(2048),
+	"registration_enabled" boolean DEFAULT false NOT NULL,
 	"start_at" timestamp NOT NULL,
 	"end_at" timestamp NOT NULL,
 	"status" varchar(50) DEFAULT 'draft' NOT NULL,
@@ -92,6 +118,10 @@ CREATE TABLE "team_members" (
 	CONSTRAINT "team_members_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
+ALTER TABLE "event_attendees" ADD CONSTRAINT "event_attendees_event_id_events_id_fk" FOREIGN KEY ("event_id") REFERENCES "public"."events"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "event_hosts" ADD CONSTRAINT "event_hosts_event_id_events_id_fk" FOREIGN KEY ("event_id") REFERENCES "public"."events"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "event_hosts" ADD CONSTRAINT "event_hosts_team_member_id_team_members_id_fk" FOREIGN KEY ("team_member_id") REFERENCES "public"."team_members"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_event_id_events_id_fk" FOREIGN KEY ("event_id") REFERENCES "public"."events"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_profile_media_id_media_id_fk" FOREIGN KEY ("profile_media_id") REFERENCES "public"."media"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "event_speakers" ADD CONSTRAINT "event_speakers_team_member_id_team_members_id_fk" FOREIGN KEY ("team_member_id") REFERENCES "public"."team_members"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "events" ADD CONSTRAINT "events_cover_media_id_media_id_fk" FOREIGN KEY ("cover_media_id") REFERENCES "public"."media"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint

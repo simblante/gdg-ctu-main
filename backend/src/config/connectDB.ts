@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import ENV from "./env";
 import logger from "../utils/logger";
-// import * as schema from "../modules";
+import * as schema from "../modules";
 
 export const pool = new Pool({
       connectionString: ENV.DB_URL,
@@ -10,7 +10,7 @@ export const pool = new Pool({
 
 export const db = drizzle({
       client: pool,
-      // schema,
+      schema,
 });
 
 export const connectDB = async () => {
