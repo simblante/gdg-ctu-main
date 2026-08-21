@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const defaultYear = "2025-2026";
+  const defaultYear = "2026-2027";
   showYear(defaultYear);
 
   yearButtons.forEach((button) => {
@@ -832,79 +832,48 @@ const BASE_URL = "";
 const galleryAlbums = [
     {
         id: 0,
-        title: "Google Cloud Workshop",
-        category: "workshop",
-        date: "June 15, 2024",
-        venue: "CTU Main Campus",
-        description: "Hands-on workshop on Google Cloud Platform for students. Participants learned about cloud computing fundamentals, deployed their first cloud application, and explored Google Cloud services.",
-        cover: "includes/images/gallery/workshop1.jpg",
+        title: "HackIT The IBPAP Challenge",
+        category: "Hackathon",
+        date: "August 17, 2026",
+        venue: "Cebu Institute of Technology – University",
+        description: "5 students amazing from Cebu Technological University - Main Campus and most of them are serving as officers of Google Developer Groups on Campus – CTU (GDGoC-CTU).",
+        cover: "includes/images/gallery/1.jpg",
         photos: [
-            "includes/images/gallery/workshop1.jpg",
-            "includes/images/gallery/workshop2.jpg",
-            "includes/images/gallery/workshop3.jpg",
-            "includes/images/gallery/workshop4.jpg",
-            "includes/images/gallery/workshop5.jpg",
-            "includes/images/gallery/workshop6.jpg",
-            "includes/images/gallery/workshop7.jpg",
-            "includes/images/gallery/workshop8.jpg"
+            "includes/images/gallery/1.jpg"
         ]
     },
     {
         id: 1,
-        title: "TechConnect 2024",
+        title: "DevFest Cebu 2025 ",
         category: "event",
-        date: "March 10, 2024",
-        venue: "CTU Auditorium",
-        description: "Our flagship event bringing together students and industry professionals. The event featured keynote speeches, panel discussions, and networking opportunities.",
-        cover: "includes/images/gallery/event1.jpg",
+        date: "November 30, 2025",
+        venue: " Golden Peak Hotel & Suites",
+        description: "GDGoC CTU is proud to have been a partner for DevFest Cebu 2025 yesterday. We loved soaking up all the knowledge and vibing with the amazing Cebu tech community.",
+        cover: "includes/images/gallery/gdgdev4.jpg",
         photos: [
-            "includes/images/gallery/event1.jpg",
-            "includes/images/gallery/event2.jpg",
-            "includes/images/gallery/event3.jpg",
-            "includes/images/gallery/event4.jpg",
-            "includes/images/gallery/event5.jpg",
-            "includes/images/gallery/event6.jpg",
-            "includes/images/gallery/event7.jpg",
-            "includes/images/gallery/event8.jpg",
-            "includes/images/gallery/event9.jpg",
-            "includes/images/gallery/event10.jpg",
-            "includes/images/gallery/event11.jpg",
-            "includes/images/gallery/event12.jpg"
+            "includes/images/gallery/gdgdev2.jpg",
+            "includes/images/gallery/gdgdev3.jpg",
+            "includes/images/gallery/gdgdev4.jpg",
+            "includes/images/gallery/gdgdev5.jpg",
+            "includes/images/gallery/gdgdev1.jpg"
+            
         ]
     },
     {
         id: 2,
-        title: "Android Bootcamp",
-        category: "bootcamp",
-        date: "August 20, 2024",
-        venue: "CTU Main Campus",
-        description: "Intensive 3-day bootcamp on Android app development. Students learned Kotlin, Android SDK, and built their first mobile application.",
-        cover: "includes/images/gallery/bootcamp1.jpg",
+        title: "  GDGoC-CTU Jam 1",
+        category: "Event",
+        date: "November 10, 2025",
+        venue: "Online",
+        description: "We’re honestly speechless. This event was more than just a jam; it was a sign of huge progress for our developer community at CTU and the entire local game jam scene. The sheer talent, creativity, and passion on display were truly inspiring.",
+        cover: "includes/images/gallery/JAM1.jpg",
         photos: [
-            "includes/images/gallery/bootcamp1.jpg",
-            "includes/images/gallery/bootcamp2.jpg",
-            "includes/images/gallery/bootcamp3.jpg",
-            "includes/images/gallery/bootcamp4.jpg",
-            "includes/images/gallery/bootcamp5.jpg",
-            "includes/images/gallery/bootcamp6.jpg"
+            "includes/images/gallery/JAM1.jpg",
+            "includes/images/gallery/JAM2.jpg",
+            "includes/images/gallery/JAM3.jpg",
+            "includes/images/gallery/JAM4.jpg"
         ]
     },
-    {
-        id: 3,
-        title: "GDG Community Meetup",
-        category: "community",
-        date: "September 5, 2024",
-        venue: "CTU Main Campus",
-        description: "Monthly community meetup for developers and tech enthusiasts. Members shared their projects, discussed new technologies, and networked with fellow developers.",
-        cover: "includes/images/gallery/community1.jpg",
-        photos: [
-            "includes/images/gallery/community1.jpg",
-            "includes/images/gallery/community2.jpg",
-            "includes/images/gallery/community3.jpg",
-            "includes/images/gallery/community4.jpg",
-            "includes/images/gallery/community5.jpg"
-        ]
-    }
 ];
 
 let currentAlbum = null;
@@ -1210,70 +1179,155 @@ document.addEventListener("DOMContentLoaded", function () {
 const staticEvents = [
     {
         id: 1,
-        title: "Google Cloud Workshop",
+        title: "Automate Anything - Intro to AI Agents ",
         category: "Workshop",
-        status: "upcoming",
-        date: "June 15, 2024",
-        time: "9:00 AM - 5:00 PM",
-        venue: "CTU Main Campus",
-        venue_type: "offline",
-        online_link: "",
-        slots: "50 slots",
-        description: "Learn the basics of Google Cloud Platform and build your first cloud application.",
-        registration_link: "#",
-        image: "includes/images/events/event1.jpg",
+        status: "past",
+        date: "December 20, 2025",
+        time: "10:00 PM - 11:25 PM",
+        venue: "Google Meet",
+        venue_type: "online",
+        slots: "",
+        description: "​Join Lamatic.ai and GDGoC-CTU for a beginner-friendly deep dive: Intro to AI Agents. Whether you're a student, a product builder, or just curious about agents, this session will prove you don't need complex code to build powerful tools.",
+        registration_link: "https://luma.com/2rrvseo1?utm_id=97758_v0_s00_e0_tv4_a1den5exk3f8ja",
+        image: "includes/images/event 1.jpg",
         hosts: [
             {
-                name: "John Doe",
-                role: "Google Cloud Expert",
-                image: "includes/images/hosts/john-doe.jpg",
-                portfolio: "https://linkedin.com/in/johndoe"
-            }
+                name: "Vrijraj Singh",
+                role: "Head of DevRel, Lamatic.ai",
+                image: "includes/images/host prof/Vrijraj Singh.avif",
+                portfolio: "https://luma.com/user/vjslamatic"
+            },
+            {
+                name: "Tyrone Tabornal",
+                role: "Host",
+                image: "includes/images/host prof/tyrone.avif",
+                portfolio: "https://luma.com/user/usr-quvPKTmaKVeQJfN"
+            },
+            {
+                name: "Aman Sharma",
+                role: "Host",
+                image: "includes/images/host prof/Aman.avif",
+                portfolio: "https://luma.com/user/amanintech"
+            },
+            {
+                name: "Charles Whiteman",
+                role: "Host",
+                image: "includes/images/host prof/charles.avif",
+                portfolio: "https://luma.com/user/amanintech"
+            },
+
         ]
     },
     {
         id: 2,
-        title: "GDG Hackathon 2024",
-        category: "Hackathon",
-        status: "upcoming",
-        date: "June 20, 2024",
-        time: "8:00 AM - 8:00 PM",
-        venue: "Online",
+        title: "Info Session: Stardust and Strides",
+        category: "Workshop",
+        status: "past",
+        date: "September 20, 2025",
+        time: "7:00 PM - 9:30 PM",
+        venue: "Teams",
         venue_type: "online",
-        online_link: "https://meet.google.com/xxx",
-        slots: "Unlimited",
-        description: "24-hour hackathon to build innovative solutions for real-world problems.",
-        registration_link: "#",
-        image: "includes/images/events/event2.jpg",
+        slots: "",
+        description: "Join us for Stardust & Strides, the official kickoff event for our new term! This isn't just another info session; it's a launchpad for your future. We're here to give you a clear roadmap for success, both in your academic journey and in your professional life.",
+        registration_link: "https://gdg.community.dev/events/details/google-gdg-on-campus-cebu-technological-university-cebu-philippines-presents-info-session-stardust-and-strides/",
+        image: "includes/images/host prof/event 2.jpg",
         hosts: [
             {
-                name: "Mark Johnson",
-                role: "Hackathon Mentor",
-                image: "includes/images/hosts/mark-johnson.jpg",
-                portfolio: "https://linkedin.com/in/markjohnson"
+                name: "Karl Michael Dela Cruz",
+                role: "UX Designer",
+                image: "includes/images/host prof/karl.jfif",
+                portfolio: "https://www.linkedin.com/in/karldelacruz/"
+            },
+            {
+                name: "Aldrich Tan",
+                role: "CXO & Co-Founder",
+                image: "includes/images/host prof/tan.png",
+                portfolio: "https://www.linkedin.com/in/aldricht/"
+            },
+            {
+                name: "Shannen Yu Sapar",
+                role: "Product Design & Strategy",
+                image: "includes/images/host prof/sapar.jfif",
+                portfolio: "https://www.linkedin.com/in/aldricht/"
             }
         ]
     },
     {
         id: 3,
-        title: "Tech Talk: Future of AI",
-        category: "Tech Talk",
+        title: "C Workshop for Newbies",
+        category: "Workshop",
         status: "past",
-        date: "May 10, 2024",
-        time: "2:00 PM - 5:00 PM",
-        venue: "CTU Auditorium",
-        venue_type: "offline",
+        date: "December 7, 2024",
+        time: "1:00 PM",
+        venue: "Teams",
+        venue_type: "online",
         online_link: "",
-        slots: "100 slots",
-        description: "Industry experts discuss the future of artificial intelligence and machine learning.",
+        slots: "",
+        description: "",
         registration_link: "#",
-        image: "includes/images/events/event3.jpg",
+        image: "includes/images/event 3.jfif",
         hosts: [
             {
-                name: "Dr. Alan Turing",
-                role: "AI Researcher",
-                image: "includes/images/hosts/alan-turing.jpg",
-                portfolio: "https://linkedin.com/in/alanturing"
+                name: "",
+                role: "",
+                image: "",
+                portfolio: ""
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Game Jam",
+        category: "Workshop",
+        status: "past",
+        date: "October 27, 2025",
+        time: "01:00 AM",
+        venue: "",
+        venue_type: "online",
+        slots: "",
+        description: "A Game Jam is a short event where you or your team work together to create a small game centered around a theme. Game Jams are incredibly helpful for developing new skills, refining your ability to estimate workload, and, most importantly, building relationships with other people who are passionate about making games.",
+        registration_link: "https://itch.io/jam/google-dev-group-jam-1",
+        image: "includes/images/EVENT2.jpg",
+        hosts: [
+            {
+                name: "Meansofa",
+                role: "Host",
+                image: "includes/images/host prof/MEANSOFA.jpg",
+                portfolio: "https://itch.io/profile/memosa"
+            },
+            {
+                name: "Hueyitch",
+                role: "Host",
+                image: "",
+                portfolio: "https://huey12345.itch.io/"
+            },
+            {
+                name: "Nesqyk",
+                role: "Host",
+                image: "",
+                portfolio: "https://nesqyk.itch.io/"
+            }
+        ]
+    },
+    {
+        id: 4,
+        title: "Gemini Study Jam: Gemini Fundamentals.",
+        category: "Workshop",
+        status: "past",
+        date: " October 18, 2025",
+        time: "7:00 PM - 9:00 PM",
+        venue: "Bevvy Virtual",
+        venue_type: "online",
+        slots: "",
+        description: "AWe're kicking off our very first Study Jam! Join Tyrone Tabornal, our Campus Organizer, for Gemini Study Jam: Gemini Fundamentals.",
+        registration_link: "l.facebook.com/l.php?u=https%3A%2F%2Fgdg.community.dev%2Fe%2Fmb5bts%2F%3Ffbclid%3DIwcGRvZgVleHRuA2FlbQIxMABicmlkETFvbUNKRW5UdW5GQUFaTUhPc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHr1lZLcAkhBEsQNw7sGDsp1WkoPcpCh6Wtz0VvKBP9aelDYorAqiGxH3sGb-_aem_282a7wAVF3iFCoXBm770qA&h=AUB4I4aAV0aoYP_ATgMxyU1yUTJjiqXP1CVs6UVaOJr2a6RiZuWI8gAjP49Bw9YRnlwtmrorXtgcgeX-WZOwJk-GsXP8UjKl_rg1BPq2yxFzvXJn4ijK8h3aTnEm5ZgLs5VCqqEX3rDidJnksQ&__tn__=-UK*F&c[0]=AUC5fG0Fw370B4oJLhKU-gsYxfvPkdwlJb7hw4DzH_a-jVaWUTtqGRkp_7-pvBWkIiQ6FK_3zO0oj2rBJaSqbbkjsntnO9jLOpIOt1Qc8P5IzeFPi7gIkLmPU--Rt8Y_3etyBcnPctb1ZyIy3kUwFDjQQ-WAQFTNWxmO11H2yaA",
+        image: "includes/images/event4.jpg",
+        hosts: [
+            {
+                name: "Tyrone Tabornal",
+                role: "Speaker",
+                image: "includes/images/host prof/tyrone.avif",
+                portfolio: "https://luma.com/user/usr-quvPKTmaKVeQJfN"
             }
         ]
     }
@@ -1749,36 +1803,30 @@ document.addEventListener("DOMContentLoaded", function () {
 const merchItems = [
     {
         id: 1,
-        name: "GDG T-Shirt",
-        description: "Premium quality cotton shirt with GDG logo.",
-        price: "₱500",
-        oldPrice: "₱750",
-        discount: "-33%",
+        name: " Pink Lanyard",
+        description: "Pink Lanyard Design",
+        price: "₱100",
         badge: "Limited",
-        image: "includes/images/merch/shirt.jpg",
-        orderLink: "#"
+        image: "includes/images/merch/l2.jpg",
+        orderLink: "https://docs.google.com/forms/d/e/1FAIpQLSfqXJ7jS2KCqo2-kS_Tm99uqtBYUBwIVgHFnOGs6fjXN8bB-Q/formResponse"
     },
     {
         id: 2,
-        name: "GDG Hoodie",
-        description: "Comfortable hoodie for the cold weather.",
-        price: "₱800",
-        oldPrice: "₱1,200",
-        discount: "-33%",
-        badge: "New",
-        image: "includes/images/merch/hoodie.jpg",
-        orderLink: "#"
+        name: "Blue Lanyard",
+        description: "Blue Lanyard Design",
+        price: "₱100",
+        badge: "Limited",
+        image: "includes/images/merch/l1.jpg",
+        orderLink: "https://docs.google.com/forms/d/e/1FAIpQLSfqXJ7jS2KCqo2-kS_Tm99uqtBYUBwIVgHFnOGs6fjXN8bB-Q/formResponse"
     },
     {
         id: 3,
         name: "GDG Sticker Pack",
         description: "Collectible stickers for your laptop.",
         price: "₱100",
-        oldPrice: "₱150",
-        discount: "-33%",
-        badge: "Sale",
-        image: "includes/images/merch/sticker.jpg",
-        orderLink: "#"
+        badge: "Limited",
+        image: "includes/images/merch/l3.jpg",
+        orderLink: "https://docs.google.com/forms/d/e/1FAIpQLSfqXJ7jS2KCqo2-kS_Tm99uqtBYUBwIVgHFnOGs6fjXN8bB-Q/formResponse"
     }
 ];
 
@@ -1814,8 +1862,7 @@ function renderMerch() {
                     <p>${item.description}</p>
                     <div class="merch-price-row">
                         <span class="merch-price">${item.price}</span>
-                        <span class="merch-old-price">${item.oldPrice}</span>
-                        <span class="merch-discount">${item.discount}</span>
+                       
                     </div>
                     <a href="${item.orderLink}" target="_blank" class="order-btn">
                         <i class="fas fa-shopping-bag"></i> Buy Now
@@ -1842,9 +1889,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const staticPartners = [
   {
-    name: "Google",
-    role: "Technology Partner",
-    image: "https://ui-avatars.com/api/?name=Google&background=4285F4&color=fff&size=200&bold=true"
+    name: "UX Mini Cebu",
+    role: "Organization Partner",
+    image: "includes/images/partnership/p1.jpg"
   },
   {
     name: "Microsoft",
@@ -2005,8 +2052,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
   function updateIcon(theme) {
-    if (!themeIcon) return;
-
     if (theme === "dark") {
       themeIcon.className = "fa-solid fa-sun";
       themeToggle.title = "Switch to Light Mode";
