@@ -706,7 +706,7 @@ section {
 
 .section-header p {
   font-size: 18px;
-  color: #e3ecf8;
+  color: #5f6368;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -1812,6 +1812,11 @@ section {
   color: #4285f4;
 }
 
+.motto-line:last-child {
+  font-weight: 400;
+  color: #4285f4;
+}
+
 .motto-dot {
   color: #4285f4;
   font-size: 24px;
@@ -2053,42 +2058,6 @@ section {
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
 }
 
-/*==================================================
-                        FLOATING CIRCLES
-    ==================================================*/
-
-.about-right::before {
-  content: "";
-
-  position: absolute;
-
-  width: 230px;
-  height: 230px;
-
-  border-radius: 50%;
-
-  background: #e8f0fe;
-
-  z-index: -1;
-}
-
-.about-right::after {
-  content: "";
-
-  position: absolute;
-
-  width: 120px;
-  height: 120px;
-
-  border-radius: 50%;
-
-  background: #fbbc05;
-
-  opacity: 0.15;
-
-  top: 30px;
-  right: 40px;
-}
 
 /*==================================================
                         ANIMATION
@@ -6281,14 +6250,7 @@ section {
     text-decoration: line-through;
 }
 
-.merch-discount {
-    font-size: 12px;
-    font-weight: 700;
-    color: #EA4335;
-    background: rgba(234, 67, 53, 0.2);
-    padding: 2px 10px;
-    border-radius: 50px;
-}
+
 
 /* ===== ORDER BUTTON ===== */
 .order-btn {
