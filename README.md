@@ -4,9 +4,13 @@ test comm
 ***
 
 BACKEND config:
-- cd backend
-- npm install
-- npm run dev
+  - Run Server
+    - cd backend
+    - npm install
+    - npm run dev
+  - Build Project
+    - cd backend
+    - npm run build
 
 DATABASE:
 - Uses drizzle orm: https://orm.drizzle.team/
