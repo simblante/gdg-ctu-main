@@ -1,3 +1,1243 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Google Developer Groups - Cebu Technological University - Main Campus</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="includes/images/icon.png" />
+</head>
+
+<body>
+    <!-- ===========================
+            HEADER
+    =========================== -->
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="includes/images/Copy of GDG On Campus.png" alt="GDG Logo" />
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#officers">Officers</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">More <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#merch">Merch</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="nav-right">
+                <button class="icon-btn" id="themeToggle" title="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8XGfS83u5u3bbwqaUlHYmYlTNqPuYPl1aULCb8xMrN91jaQ/viewform?pli=1" class="join-btn">
+                    <i class="fa-solid fa-user-plus"></i> <span>Join Us</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===========================
+            HOME
+    =========================== -->
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="badge">Welcome to</span>
+
+                <h1 style="color: black;">
+                    Google Developer Groups
+                    <span>CTU</span>
+                </h1>
+
+                <p>
+                    A community of passionate developers, designers, innovators, and
+                    learners from
+                    <strong>Cebu Technological University - Main Campus</strong>
+                    building technology for everyone.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#officers" class="btn-primary">
+                        Explore Us
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="#about" class="btn-secondary">
+                        About Us
+                        <i class="fa-solid fa-users"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <img src="includes/images/logo.png" alt="GDG Logo" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+            OFFICERS - STATIC
+    =========================== -->
+
+    <section id="officers" class="section-officers">
+        <div class="container">
+            <div class="officers-header">
+                <div class="section-header">
+                    <span class="section-badge">Leadership Team</span>
+                    <h2 style="color: #4285f4">Our <span class="gradient-text">Officers</span></h2>
+                    <p class="header-subtitle">
+                        The passionate leaders behind GDGoC CTU, dedicated to empowering
+                        developers and building an innovative community together.
+                    </p>
+                </div>
+
+                <div class="year-selector active" id="yearSelector">
+                    <button class="year-btn active" data-year="2026-2027">
+                        <span class="year-label">2026 - 2027</span>
+                        <span class="year-badge">Current</span>
+                    </button>
+
+                    <button class="year-btn " data-year="2025-2026">
+                        <span class="year-label">2025 - 2026</span>
+                        <span class="year-badge">Previous</span>
+                    </button>
+                    <button class="year-btn" data-year="2024-2025">
+                        <span class="year-label">2024 - 2025</span>
+                        <span class="year-badge">Previous</span>
+                    </button>
+                </div>
+
+                <div class="officers-motto">
+                    <span class="motto-line">Build</span>
+                    <span class="motto-dot">•</span>
+                    <span class="motto-line">Connect</span>
+                    <span class="motto-dot">•</span>
+                    <span class="motto-line">Impact</span>
+                </div>
+            </div>
+
+            <!-- ===== EXECUTIVE BOARD ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-crown"></i> Executive Board</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="executive_board">
+
+                    <!-- OFFICER CARD TEMPLATE -->
+                    <div class="officer-card" data-officer="exec-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/president.jpg" alt="President" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">President</span>
+                                    <h4>Juan Dela Cruz</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="officer-card" data-officer="exec-2">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/vice-president.jpg" alt="Vice President" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Vice President</span>
+                                    <h4>Maria Santos</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="officer-card" data-officer="exec-3">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/secretary.jpg" alt="Secretary" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Secretary</span>
+                                    <h4>Pedro Reyes</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== OPERATIONS DEPARTMENT ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-cogs"></i> Operations Department</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="operations">
+
+                    <div class="officer-card" data-officer="ops-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/ops-lead.jpg" alt="Operations Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Operations Lead</span>
+                                    <h4>Anna Lopez</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="officer-card" data-officer="ops-2">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/ops-member.jpg" alt="Operations Member" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Operations Member</span>
+                                    <h4>Mark Tan</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== TECHNOLOGY DEPARTMENT ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-code"></i> Technology Department</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="technology">
+
+                    <div class="officer-card" data-officer="tech-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/Chief-Technology-Officer.jpg" alt="Tech Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Chief-Technology-Officer</span>
+                                    <h4>James Niño Tan</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== COMMUNITY DEVELOPMENT ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-users"></i> Community Development</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="community">
+
+                    <div class="officer-card" data-officer="comm-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/community-lead.jpg" alt="Community Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Community Lead</span>
+                                    <h4>Lisa Garcia</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== CREATIVES ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-paint-brush"></i> Creatives</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="creatives">
+
+                    <div class="officer-card" data-officer="crea-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/creative-lead.jpg" alt="Creative Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Creative Lead</span>
+                                    <h4>Kim Santos</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== FINANCE ===== -->
+            <div class="department-group year-group active" data-year="2025-2026">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-coins"></i> Finance</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid" data-department="finance">
+
+                    <div class="officer-card" data-officer="fin-1">
+                        <div class="officer-image-wrapper">
+                            <img src="includes/images/officers/finance-lead.jpg" alt="Finance Lead" class="officer-photo" onerror="this.style.display='none'">
+                            <div class="placeholder-blur" style="background: linear-gradient(135deg, #4285F4, #5F5CFF);"></div>
+                            <div class="officer-hover-info">
+                                <div class="hover-content">
+                                    <span class="hover-role">Finance Lead</span>
+                                    <h4>Maria Flores</h4>
+                                    <p><i class="fas fa-calendar-alt"></i> S.Y. 2025-2026</p>
+                                    <div class="hover-socials">
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <a href="#"><i class="fab fa-github"></i></a>
+                                    </div>
+                                    <span class="hover-click"><i class="fas fa-mouse-pointer"></i> View Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== PREVIOUS YEAR ===== -->
+            <div class="department-group year-group" data-year="2024-2025" style="display: none;">
+                <div class="department-header">
+                    <div class="dept-line"></div>
+                    <h3><i class="fas fa-crown"></i> Executive Board 2024-2025</h3>
+                    <div class="dept-line"></div>
+                </div>
+                <div class="officers-grid">
+                    <div class="officers-empty" style="grid-column:1/-1;">
+                        <div class="empty-content">
+                            <i class="fas fa-users-slash"></i>
+                            <h3>Previous Officers</h3>
+                            <p>Executive Board members from S.Y. 2024-2025 will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+            OFFICER MODAL
+    =========================== -->
+
+    <div class="officer-modal" id="officerModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-content">
+                <div class="modal-left">
+                    <img src="includes/images/default.jpg" alt="Officer Photo" id="modalImage" onerror="this.src='https://ui-avatars.com/api/?name=Officer&background=4285F4&color=fff&size=300&bold=true'" />
+                </div>
+                <div class="modal-right">
+                    <div class="modal-badge" id="modalBadge">Department</div>
+                    <h2 id="modalName">Officer Name</h2>
+                    <div class="modal-role" id="modalRole">Role</div>
+                    <div class="modal-details">
+                        <div class="modal-detail-item">
+                            <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div><span class="detail-label">School Year</span><p id="modalSY">S.Y. 2025-2026</p></div>
+                        </div>
+                        <div class="modal-detail-item">
+                            <div class="detail-icon"><i class="fas fa-birthday-cake"></i></div>
+                            <div><span class="detail-label">Birthday</span><p id="modalBirthday">Not specified</p></div>
+                        </div>
+                        <div class="modal-detail-item">
+                            <div class="detail-icon"><i class="fas fa-tasks"></i></div>
+                            <div><span class="detail-label">Role & Responsibilities</span><p id="modalResponsibilities">No responsibilities specified.</p></div>
+                        </div>
+                        <div class="modal-detail-item">
+                            <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div><span class="detail-label">Email</span><p id="modalEmail">example@ctu.edu.ph</p></div>
+                        </div>
+                    </div>
+                    <div class="modal-socials">
+                        <a href="#" id="modalFb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="modalTwitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" id="modalLinkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" id="modalGithub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+            ABOUT SECTION - STATIC
+    ========================================== -->
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-hero">
+                <div class="about-left">
+                    <span class="about-badge">About Us</span>
+                    <h2>Building Developers.<br />Creating Impact. <span>Together.</span></h2>
+                    <p >Google Developer Groups - Cebu Technological University - Main Campus is a student-led technology community that empowers aspiring developers through workshops, hackathons, collaborative projects, networking events, and hands-on learning experiences powered by Google technologies.</p>
+                    <a href="#our-story" class="about-btn">Discover Our Story <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="about-right">
+                    <img src="includes/images/logo.png" alt="GDG Logo" />
+                </div>
+            </div>
+
+            <div id="mission" class="about-purpose">
+                <div class="purpose-header">
+                    <span class="section-label">OUR PURPOSE</span>
+                    <h2>Our Mission, Vision, and Values</h2>
+                    <p class="purpose-subtitle">Guiding principles that drive our community forward</p>
+                </div>
+
+                <div class="purpose-grid">
+                    <div class="purpose-card mission">
+                        <div class="purpose-card-inner">
+                            <div class="purpose-icon"><i class="fa-solid fa-rocket"></i></div>
+                            <div class="purpose-number">01</div>
+                            <h3>Our Mission</h3>
+                            <p>To empower students and the community with cutting-edge technology knowledge through collaborative learning, skill development, and meaningful connections that drive innovation and career growth.</p>
+                            <div class="purpose-divider"></div>
+                            <ul class="purpose-list">
+                                <li><i class="fas fa-check-circle"></i> Computer Science Advocacy</li>
+                                <li><i class="fas fa-check-circle"></i> Practical Skills Development</li>
+                                <li><i class="fas fa-check-circle"></i> Community Upskilling</li>
+                                <li><i class="fas fa-check-circle"></i> Networking Opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="purpose-card vision">
+                        <div class="purpose-card-inner">
+                            <div class="purpose-icon"><i class="fa-solid fa-eye"></i></div>
+                            <div class="purpose-number">02</div>
+                            <h3>Our Vision</h3>
+                            <p>We envision a future where every student at Cebu Technological University has access to world-class technology education, practical skills, and a supportive network that transforms them into confident, competent, and connected tech professionals.</p>
+                            <div class="purpose-divider"></div>
+                            <ul class="purpose-list">
+                                <li><i class="fas fa-check-circle"></i> Accessibility for All</li>
+                                <li><i class="fas fa-check-circle"></i> Excellence in Learning</li>
+                                <li><i class="fas fa-check-circle"></i> Transformation & Growth</li>
+                                <li><i class="fas fa-check-circle"></i> Connection & Network</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="purpose-card values">
+                        <div class="purpose-card-inner">
+                            <div class="purpose-icon"><i class="fa-solid fa-heart"></i></div>
+                            <div class="purpose-number">03</div>
+                            <h3>Our Values</h3>
+                            <p>We believe in creating an inclusive environment where innovation thrives, collaboration flourishes, and every member grows into a confident tech professional.</p>
+                            <div class="purpose-divider"></div>
+                            <ul class="purpose-list">
+                                <li><i class="fas fa-check-circle"></i> Innovation & Learning</li>
+                                <li><i class="fas fa-check-circle"></i> Collaboration & Community</li>
+                                <li><i class="fas fa-check-circle"></i> Excellence & Competency</li>
+                                <li><i class="fas fa-check-circle"></i> Advocacy & Impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="strategic-goals">
+                    <div class="strategic-header">
+                        <span class="section-label">STRATEGIC GOALS</span>
+                        <h2>How We Make <span>Impact</span></h2>
+                        <p>Our commitment to building the next generation of tech leaders</p>
+                    </div>
+                    <div class="strategic-grid">
+                        <div class="strategic-item">
+                            <div class="strategic-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <h4>Computer Science Advocacy</h4>
+                            <p>Making CS accessible to all students through interdisciplinary workshops and beginner-friendly content.</p>
+                        </div>
+                        <div class="strategic-item">
+                            <div class="strategic-icon"><i class="fas fa-laptop-code"></i></div>
+                            <h4>Skill Development</h4>
+                            <p>Providing high-quality, practical learning experiences with industry-relevant projects.</p>
+                        </div>
+                        <div class="strategic-item">
+                            <div class="strategic-icon"><i class="fas fa-arrow-up"></i></div>
+                            <h4>Upskilling & Competency</h4>
+                            <p>Ensuring members develop marketable, up-to-date technical competencies.</p>
+                        </div>
+                        <div class="strategic-item">
+                            <div class="strategic-icon"><i class="fas fa-handshake"></i></div>
+                            <h4>Networking & Growth</h4>
+                            <p>Building a robust network connecting students with industry professionals and mentors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="team-story">
+                <div class="story-header">
+                    <span class="section-label" id="our-story">OUR STORY</span>
+                    <h2>Team Story: <span>GDG On Campus CTU</span></h2>
+                    <p>From a small group of passionate students to one of the most active tech communities in the region.</p>
+                </div>
+                <div class="story-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">2023</span><span class="timeline-dot"></span></div>
+                        <div class="timeline-content">
+                            <h3>Our Beginning</h3>
+                            <p>Founded in 2023, GDG On Campus CTU started as a small group of passionate students determined to bring Google's developer community to Cebu Technological University. What began as a vision to promote technology education has grown into one of the most active student tech communities in the region.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">2023</span><span class="timeline-dot"></span></div>
+                        <div class="timeline-content">
+                            <h3>The Foundation</h3>
+                            <ul class="story-list">
+                                <li><i class="fas fa-check-circle"></i> Chapter Founded with initial core team of organizers</li>
+                                <li><i class="fas fa-check-circle"></i> First Workshops: Launched beginner-friendly programming sessions</li>
+                                <li><i class="fas fa-check-circle"></i> Community Building: Started building relationships with local tech professionals</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">2024</span><span class="timeline-dot"></span></div>
+                        <div class="timeline-content">
+                            <h3>Major Breakthrough</h3>
+                            <ul class="story-list">
+                                <li><i class="fas fa-check-circle"></i> TechConnect Event: Our flagship event bringing together students and industry professionals</li>
+                                <li><i class="fas fa-check-circle"></i> Membership Growth: Reached 200+ active members milestone</li>
+                                <li><i class="fas fa-check-circle"></i> Industry Partnerships: Established connections with local tech companies</li>
+                                <li><i class="fas fa-check-circle"></i> Recognition: Gained recognition from Google and the university community</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">Growth</span><span class="timeline-dot"></span></div>
+                        <div class="timeline-content">
+                            <h3>Growth Journey</h3>
+                            <div class="growth-stats">
+                                <div class="growth-stat"><span class="stat-number">2023</span><span class="stat-label">Started with Founding Members</span></div>
+                                <div class="growth-stat"><span class="stat-number" id="growthMembers">0</span><span class="stat-label">Members Today</span></div>
+                                <div class="growth-stat"><span class="stat-number" id="growthWorkshops">0</span><span class="stat-label">Workshops Hosted</span></div>
+                                <div class="growth-stat"><span class="stat-number" id="growthMeetups">0</span><span class="stat-label">Meetups Organized</span></div>
+                                <div class="growth-stat"><span class="stat-number" id="growthTrained">0</span><span class="stat-label">Students Trained</span></div>
+                                <div class="growth-stat"><span class="stat-number" id="growthPartners">0</span><span class="stat-label">Partnerships Formed</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">2024</span><span class="timeline-dot highlight"></span></div>
+                        <div class="timeline-content">
+                            <h3>TechConnect 2024</h3>
+                            <p class="highlight-text">Our biggest achievement to date — a landmark event that:</p>
+                            <ul class="story-list">
+                                <li><i class="fas fa-check-circle"></i> Brought together <strong>200+ participants</strong> from across the university</li>
+                                <li><i class="fas fa-check-circle"></i> Featured industry speakers and hands-on workshops</li>
+                                <li><i class="fas fa-check-circle"></i> Showcased student projects and innovations</li>
+                                <li><i class="fas fa-check-circle"></i> Created lasting connections between students and professionals</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"><span class="timeline-year">Today</span><span class="timeline-dot"></span></div>
+                        <div class="timeline-content">
+                            <h3>Where We Are Now</h3>
+                            <p>Today, GDG On Campus CTU stands as a testament to what passionate students can achieve. With <strong id="membersNow">0</strong> members and growing, we continue to:</p>
+                            <ul class="story-list">
+                                <li><i class="fas fa-check-circle"></i> Host regular workshops and learning sessions</li>
+                                <li><i class="fas fa-check-circle"></i> Connect students with industry opportunities</li>
+                                <li><i class="fas fa-check-circle"></i> Promote computer science across all disciplines</li>
+                                <li><i class="fas fa-check-circle"></i> Build a supportive community of tech enthusiasts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- ==========================================
+            GALLERY - WITH ALBUM FEATURE
+    ========================================== -->
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Memories</span>
+                <h2>Captured <span class="gradient-text">Moments</span></h2>
+                <p>Discover the memorable events, workshops, bootcamps, hackathons, and community activities that shaped Google Developer Groups - Cebu Technological University - Main Campus.</p>
+            </div>
+
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn" data-filter="event">Events</button>
+                <button class="filter-btn" data-filter="bootcamp">Bootcamps</button>
+                <button class="filter-btn" data-filter="community">Community</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- GALLERY ALBUMS - Generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+            GALLERY MODAL - WITH SCROLLABLE INFO
+    ========================================== -->
+
+    <div class="gallery-modal" id="galleryModal">
+        <div class="gallery-modal-overlay"></div>
+        <div class="gallery-modal-container">
+            
+            <!-- Close Button -->
+            <button class="gallery-modal-close" id="galleryModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Slider Navigation -->
+            <button class="gallery-slider-btn prev" id="galleryPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-slider-btn next" id="galleryNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Image Counter -->
+            <div class="gallery-image-counter" id="galleryImageCounter">1 / 8</div>
+
+            <!-- ===== MAIN CONTENT - SCROLLABLE ===== -->
+            <div class="gallery-modal-scrollable">
+                
+                <!-- Image Section -->
+                <div class="gallery-modal-hero">
+                    <img src="" alt="" id="galleryModalImage" />
+                    <div class="gallery-modal-hero-overlay">
+                        <div class="gallery-modal-hero-content">
+                            <span class="modal-category" id="galleryModalCategory">Category</span>
+                            <h2 id="galleryModalTitle">Title</h2>
+                            <p id="galleryModalDescription">Description</p>
+                            <div class="modal-hero-meta">
+                                <span><i class="fas fa-calendar-alt"></i> <span id="galleryModalDate">Date</span></span>
+                                <span><i class="fas fa-map-marker-alt"></i> <span id="galleryModalVenue">Venue</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="gallery-thumbnails" id="galleryThumbnails">
+                    <!-- Thumbnails will be generated by JavaScript -->
+                </div>
+
+                <!-- ===== DETAILS SECTION - SCROLLABLE ===== -->
+                <div class="gallery-modal-details">
+                                        <!-- Photo Count -->
+                    <div class="modal-detail-item full">
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Total Photos</span>
+                            <p id="galleryModalPhotoCount">0 photos</p>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-detail-item">
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Date</span>
+                            <p id="galleryModalDateDetail">Date</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-detail-item">
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Venue</span>
+                            <p id="galleryModalVenueDetail">Venue</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-detail-item">
+                        <div class="modal-detail-icon">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div>
+                            <span class="modal-detail-label">Category</span>
+                            <p id="galleryModalTypeDetail">Category</p>
+                        </div>
+                    </div>
+
+                  
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- ===========================
+            EVENTS - STATIC WITH HOSTS
+    =========================== -->
+
+    <section id="events" class="section-events">
+        <div class="events-bg-shape shape1"></div>
+        <div class="events-bg-shape shape2"></div>
+        <div class="container">
+            <div class="events-header">
+                <div class="events-text">
+                    <span class="section-badge">Upcoming Events</span>
+                    <h2>Our <span>Events</span></h2>
+                    <div class="section-line"><span></span><span></span><span></span></div>
+                    <p>Learn, connect, compete, and innovate through workshops, bootcamps, hackathons, community meetups, and exciting Google Developer Group activities.</p>
+                </div>
+                <div class="events-image">
+                    <img src="includes/images/logo.png" alt="GDG Logo" />
+                </div>
+            </div>
+
+            <!-- Event Filters -->
+            <div class="events-filter">
+                <button class="events-filter-btn active" data-filter="all">All Events</button>
+                <button class="events-filter-btn" data-filter="upcoming">Upcoming</button>
+                <button class="events-filter-btn" data-filter="past">Finished</button>
+            </div>
+
+            <div class="events-grid" id="eventsGrid">
+                <!-- EVENT CARDS - Generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+            EVENT MODAL - WITH HOSTS
+    =========================================== -->
+
+    <div class="event-modal" id="eventModal">
+        <div class="event-modal-overlay"></div>
+        <div class="event-modal-container">
+            <button class="event-modal-close" id="eventModalClose"><i class="fas fa-times"></i></button>
+            <div class="event-modal-banner">
+                <img id="eventModalImage" src="" alt="" />
+                <div class="event-modal-gradient"></div>
+                <div class="event-modal-status"><span id="eventModalBadge">Upcoming</span></div>
+                <div class="event-modal-venue-badge" id="eventModalVenueBadge">
+                    <i class="fas fa-map-marker-alt" id="eventModalVenueIcon"></i>
+                    <span id="eventModalVenueType">Offline</span>
+                </div>
+            </div>
+            <div class="event-modal-content">
+                <div class="event-modal-header">
+                    <span class="event-modal-category" id="eventModalCategory">Category</span>
+                    <h2 id="eventModalTitle">Event Title</h2>
+                    <p id="eventModalDescription">Event description here...</p>
+                </div>
+                <div class="event-modal-grid">
+                    <div class="event-info-box"><h3><i class="fas fa-calendar-alt"></i> Schedule</h3><p id="eventModalDate">Date</p></div>
+                    <div class="event-info-box"><h3><i class="fas fa-clock"></i> Time</h3><p id="eventModalTime">Time</p></div>
+                    <div class="event-info-box"><h3><i class="fas fa-map-marker-alt"></i> Venue</h3><p id="eventModalVenue">Venue</p></div>
+                    <div class="event-info-box"><h3><i class="fas fa-users"></i> Slots</h3><p id="eventModalSlots">Slots</p></div>
+                    <div class="event-info-box" id="eventModalOnlineBox" style="display:none;"><h3><i class="fas fa-link"></i> Online Link</h3><p id="eventModalOnlineLink">-</p></div>
+                    <div class="event-info-box" id="eventModalRegBox" style="display:none;"><h3><i class="fas fa-ticket-alt"></i> Registration</h3><p id="eventModalRegLink">-</p></div>
+                </div>
+                
+                <!-- HOSTS / SPEAKERS SECTION -->
+                <div class="event-hosts-section" id="eventHostsSection">
+                    <h4><i class="fas fa-microphone"></i> Hosts & Speakers</h4>
+                    <div id="eventHostsContainer">
+                        <!-- Hosts will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="event-speaker" id="eventSpeakerSingle" style="display:none;">
+                    <img id="eventSpeakerImage" src="includes/images/speaker.jpg" alt="Speaker" onerror="this.src='https://ui-avatars.com/api/?name=Speaker&background=4285F4&color=fff&size=200&bold=true'" />
+                    <div>
+                        <small>Guest Speaker</small>
+                        <h3 id="eventSpeakerName">Speaker Name</h3>
+                        <span id="eventSpeakerRole">Speaker Role</span>
+                    </div>
+                </div>
+                <div class="event-modal-buttons">
+                    <a href="#" id="eventRegisterBtn" class="register-btn"><i class="fas fa-ticket-alt"></i> Register Now</a>
+                    <button class="share-btn" id="eventShareBtn"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===========================
+            PARTNERS - STATIC
+    =========================== -->
+
+    <section id="partners" class="section-partners">
+        <div class="partners-bg-shape shape1"></div>
+        <div class="partners-bg-shape shape2"></div>
+        <div class="container">
+            <div class="partners-header">
+                <div class="partners-text">
+                    <span class="section-badge">OUR PARTNERS</span>
+                    <h2>Trusted <span>Partners</span></h2>
+                    <div class="section-line"><span></span><span></span><span></span></div>
+                    <p>We proudly collaborate with leading technology companies, academic institutions, and developer communities to empower students through innovation, learning, and real-world opportunities.</p>
+                </div>
+                <div class="partners-image">
+                    <img src="includes/images/logo.png" alt="Google Developers" />
+                </div>
+            </div>
+
+            <div class="partners-grid" id="partnersGrid">
+                <!-- PARTNER CARDS - IKAW ANG MAGLALAGAY -->
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="includes/images/partners/google.png" alt="Google" onerror="this.src=''">
+                    </div>
+                    <div class="partner-overlay">
+                        <h3>Google</h3>
+                        <p>Technology Partner</p>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="includes/images/partners/microsoft.png" alt="Microsoft" onerror="this.src=''">
+                    </div>
+                    <div class="partner-overlay">
+                        <h3>Microsoft</h3>
+                        <p>Technology Partner</p>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="includes/images/partners/aws.png" alt="AWS" onerror="this.src=''">
+                    </div>
+                    <div class="partner-overlay">
+                        <h3>AWS</h3>
+                        <p>Cloud Partner</p>
+                    </div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-image">
+                        <img src="includes/images/partners/github.png" alt="GitHub" onerror="this.src=''">
+                    </div>
+                    <div class="partner-overlay">
+                        <h3>GitHub</h3>
+                        <p>Developer Partner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--=========================================
+            MERCH - PICTURE FIRST, HOVER REVEAL
+    ==========================================-->
+
+    <section id="merch" class="section-merch">
+        <div class="merch-bg-shape shape1"></div>
+        <div class="merch-bg-shape shape2"></div>
+        <div class="container">
+            <div class="merch-header">
+                <div class="merch-text">
+                    <span class="section-badge">Official Merchandise</span>
+                    <h2>Wear the <span>GDGoC Spirit</span></h2>
+                    <div class="section-line"><span></span><span></span><span></span></div>
+                    <p>Discover premium GDGoC merchandise designed for developers, innovators, and future tech leaders.</p>
+                    <div class="merch-mini-card">
+                        <i class="fas fa-shirt"></i>
+                        <div>
+                            <h4>Limited Collection</h4>
+                            <p>Exclusive for GDGoC Members</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="merch-image">
+                    <img src="includes/images/logo.png" alt="GDGoC" />
+                </div>
+            </div>
+
+            <div class="merch-grid" id="merchGrid">
+                <!-- MERCH ITEMS - Generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ==========================================
+            FAQ - STATIC
+    ========================================== -->
+
+    <section id="faq" class="section-faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Questions?</span>
+                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p>Find answers to the most common questions about GDG CTU.</p>
+            </div>
+
+            <div class="faq-filters">
+                <button class="faq-filter-btn active" data-filter="all">All Questions</button>
+                <button class="faq-filter-btn" data-filter="general">General</button>
+                <button class="faq-filter-btn" data-filter="membership">Membership</button>
+                <button class="faq-filter-btn" data-filter="activities">Activities</button>
+                <button class="faq-filter-btn" data-filter="benefits">Benefits</button>
+            </div>
+
+            <div class="faq-grid" id="faqGrid">
+                <!-- FAQ ITEMS - IKAW ANG MAGLALAGAY -->
+
+                <!-- FAQ ITEM TEMPLATE - COPY THIS -->
+                <div class="faq-item active" data-category="general">
+                    <div class="faq-question" data-index="0">
+                        <div class="faq-question-left">
+                            <span class="faq-category-tag">General</span>
+                            <h3>What is GDG On Campus CTU?</h3>
+                        </div>
+                        <div class="faq-question-right">
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <i class="fas fa-check-circle faq-check"></i>
+                            GDG On Campus CTU is a student-led technology community at Cebu Technological University that empowers aspiring developers through workshops, hackathons, collaborative projects, and networking events powered by Google technologies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="membership">
+                    <div class="faq-question" data-index="1">
+                        <div class="faq-question-left">
+                            <span class="faq-category-tag">Membership</span>
+                            <h3>How can I become a member?</h3>
+                        </div>
+                        <div class="faq-question-right">
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <i class="fas fa-check-circle faq-check"></i>
+                            You can become a member by signing up through our registration form. All students of Cebu Technological University are welcome to join! Just click the "Join Us" button above.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="activities">
+                    <div class="faq-question" data-index="2">
+                        <div class="faq-question-left">
+                            <span class="faq-category-tag">Activities</span>
+                            <h3>What activities does GDG CTU organize?</h3>
+                        </div>
+                        <div class="faq-question-right">
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <i class="fas fa-check-circle faq-check"></i>
+                            We organize workshops, hackathons, tech talks, bootcamps, study jams, and community meetups. All activities are designed to help students learn new technologies and build their skills.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="benefits">
+                    <div class="faq-question" data-index="3">
+                        <div class="faq-question-left">
+                            <span class="faq-category-tag">Benefits</span>
+                            <h3>What are the benefits of joining?</h3>
+                        </div>
+                        <div class="faq-question-right">
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <i class="fas fa-check-circle faq-check"></i>
+                            Members get access to exclusive workshops, networking opportunities with industry professionals, project collaboration, Google resources, certificates, and a supportive community of tech enthusiasts.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="general">
+                    <div class="faq-question" data-index="4">
+                        <div class="faq-question-left">
+                            <span class="faq-category-tag">General</span>
+                            <h3>Do I need to know how to code?</h3>
+                        </div>
+                        <div class="faq-question-right">
+                            <i class="fas fa-chevron-down faq-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            <i class="fas fa-check-circle faq-check"></i>
+                            Not at all! We welcome everyone regardless of skill level. Our activities are designed for beginners to advanced learners. We believe in learning together and helping each other grow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+            FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="includes/images/logo.png" alt="GDG CTU Logo" />
+                        <div>
+                            <h2>Google Developer Groups</h2>
+                            <p>Cebu Technological University - Main Campus</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">Building the next generation of developers through technology, community, and innovation. Join us in exploring the latest in web development, mobile apps, cloud computing, and AI.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/gdsc.cebutech" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#about">About GDG</a></li>
+                        <li><a href="#officers">Our Team</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#merch">Merch</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Developer Resources</h4>
+                    <ul>
+                        <li><a href="https://developers.google.com/" target="_blank">Google for Developers</a></li>
+                        <li><a href="https://cloud.google.com/" target="_blank">Google Cloud</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="https://gdg.community.dev/" target="_blank">GDG Program</a></li>
+                        <li><a href="#contact">Join Our Community</a></li>
+                        <li><a href="#contact">Email Us</a></li>
+                        <li><a href="https://maps.google.com/" target="_blank">Find Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2026 <strong>Google Developer Groups</strong> - Cebu Technological University - Main Campus</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#">Privacy Policy</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#">Code of Conduct</a>
+                </div>
+            </div>
+
+            <div class="footer-built">
+                <span><i class="fas fa-code"></i> Built with HTML, CSS &amp; JavaScript</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+            LOADING SCREEN
+    ========================================== -->
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <img src="includes/images/logo.png" alt="GDG CTU Logo" />
+            </div>
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <div class="loading-text">
+                <span>G</span><span>D</span><span>G</span>
+                <span class="loading-dot">•</span>
+                <span>C</span><span>T</span><span>U</span>
+            </div>
+            <p class="loading-subtitle" id="loadingStatus">Loading...</p>
+            <div class="loading-error" id="loadingError">
+                <i class="fas fa-wifi"></i>
+                <h3>No Internet Connection</h3>
+                <p>Please check your connection and try again.</p>
+                <button class="loading-retry-btn" id="retryBtn"><i class="fas fa-sync-alt"></i> Retry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+            SCRIPTS
+    ========================================== -->
+
+    <script src="script.js?v=8"></script>
+
+    <!-- ==========================================
+            AUTO REFRESH FROM ADMIN
+    ========================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("🔄 Auto-refresh active - watching for admin updates...");
+            let lastUpdate = localStorage.getItem("gdgDataUpdated") || "0";
+            setInterval(function() {
+                const currentUpdate = localStorage.getItem("gdgDataUpdated") || "0";
+                if (currentUpdate !== lastUpdate) {
+                    console.log("🔄 Data update detected! Refreshing page...");
+                    lastUpdate = currentUpdate;
+                    location.reload();
+                }
+            }, 3000);
+            document.addEventListener("visibilitychange", function() {
+                if (!document.hidden) {
+                    console.log("🔄 Page visible, checking for updates...");
+                    const current = localStorage.getItem("gdgDataUpdated") || "0";
+                    if (current !== lastUpdate) {
+                        console.log("🔄 Update found, reloading...");
+                        lastUpdate = current;
+                        location.reload();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+=======
 // =====================================
 // YEAR SELECTOR - OFFICERS
 // =====================================
@@ -2185,3 +3425,4 @@ function showNotification(message, type = "info") {
     setTimeout(() => notification.remove(), 300);
   }, 5000);
 }
+>>>>>>> 14fb18efbaad4e8b5757e3f0e146249d7194058e
